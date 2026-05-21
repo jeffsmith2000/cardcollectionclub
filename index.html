@@ -1482,6 +1482,7 @@ function submitRegistration(e) {
 // CARD_LIBRARY + CARD_SETS loaded from card-library.js (full card library — Pokemon EN/JP/TH/ID + One Piece EN/JP)
 // POKEMON_ML_LIBRARY loaded from card-library-pokemon-multilang.js (lazy — DE/FR/ES/IT/PT/KO)
 // DIGIMON_LIBRARY + DIGIMON_SETS loaded from card-library-digimon.js (lazy — loaded on first Digimon tab switch)
+// OP_ZH_LIBRARY + OP_ZH_SETS loaded from card-library-op-zh.js (lazy — loaded on first One Piece tab switch, adds SC + TC)
 // Future (staged): card-library-ygo.js, card-library-dbs.js
 
 var searchMode = 'browse';
@@ -1512,16 +1513,30 @@ var GAME_CONFIG = {
   },
   op: {
     getLib: function() {
-      return (typeof CARD_LIBRARY !== 'undefined' ? CARD_LIBRARY : []).filter(function(c){ return c.t === 'op'; });
+      var base = (typeof CARD_LIBRARY !== 'undefined' ? CARD_LIBRARY : []).filter(function(c){ return c.t === 'op'; });
+      var zh = typeof OP_ZH_LIBRARY !== 'undefined' ? OP_ZH_LIBRARY : [];
+      return base.concat(zh);
     },
-    getSets: function() { return typeof CARD_SETS !== 'undefined' ? CARD_SETS : {}; },
+    getSets: function() {
+      var base = typeof CARD_SETS !== 'undefined' ? CARD_SETS : {};
+      var zh = typeof OP_ZH_SETS !== 'undefined' ? OP_ZH_SETS : {};
+      var merged = {};
+      for (var k in base) merged[k] = base[k];
+      for (var k2 in zh) merged[k2] = zh[k2];
+      return merged;
+    },
     label: 'One Piece',
-    langOptions: '<option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option>',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option><option value="SC">中文简体 (Simplified)</option><option value="TC">中文繁體 (Traditional)</option>',
     ebayGame: 'one piece',
     statsLabel: function(lib) {
-      var en=0,jp=0;
-      lib.forEach(function(c){ if(c.l==='EN') en++; else jp++; });
-      return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+lib.length.toLocaleString()+' total One Piece cards';
+      var en=0,jp=0,sc=0,tc=0;
+      lib.forEach(function(c){
+        if(c.l==='EN') en++;
+        else if(c.l==='JP') jp++;
+        else if(c.l==='SC') sc++;
+        else if(c.l==='TC') tc++;
+      });
+      return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+sc.toLocaleString()+' SC · '+tc.toLocaleString()+' TC · '+lib.length.toLocaleString()+' total One Piece cards';
     }
   },
   dg: {
@@ -1549,7 +1564,7 @@ function switchGame(game) {
   // Update subtitle + search placeholder
   var subtitles = {
     pk: 'Browse every Pokemon card ever printed — all languages',
-    op: 'Browse every One Piece card ever printed — English & Japanese',
+    op: 'Browse every One Piece card ever printed — English, Japanese & Chinese (SC/TC)',
     dg: 'Browse every Digimon card ever printed — 120 sets, 4,700+ cards'
   };
   var placeholders = {
@@ -1580,6 +1595,14 @@ function switchGame(game) {
     dgScript.src = 'card-library-digimon.js?v=2';
     dgScript.onload = function() { loadedGames['dg'] = true; updateSetDropdown(); browseLibrary(); };
     document.head.appendChild(dgScript);
+  }
+
+  // For One Piece: lazy-load Chinese (SC + TC) library on first switch
+  if (game === 'op' && !loadedGames['op-zh'] && typeof OP_ZH_LIBRARY === 'undefined') {
+    var zhScript = document.createElement('script');
+    zhScript.src = 'card-library-op-zh.js?v=1';
+    zhScript.onload = function() { loadedGames['op-zh'] = true; updateSetDropdown(); browseLibrary(); };
+    document.head.appendChild(zhScript);
   }
 
   updateSetDropdown();
@@ -1732,10 +1755,15 @@ function buildEbayUrl(cardName, setName, cardNum, cardGame, setCode, cardLang) {
   if (lang === 'EN') {
     // English: CardName SetName CardNum game card
     query = (cardName + ' ' + cleanSet + numPart + ' ' + gamePart + ' card').trim();
-  } else {
-    // Non-English (JP, TH, ID, etc): SetCode CardName CardNum SetName "Pokemon cards"
+  } else if (gamePart === 'pokemon') {
+    // Non-English Pokemon (JP, TH, ID, DE, FR, IT, ES, PT, KO):
+    // SetCode CardName CardNum SetName "Pokemon cards"
     // e.g. "SV5K リザードン 001 Wild Force Pokemon cards"
     query = (sc + ' ' + cardName + numPart + ' ' + cleanSet + ' Pokemon cards').trim();
+  } else {
+    // Non-English non-Pokemon (OP JP/SC/TC, Digimon, etc):
+    // SetCode CardName CardNum SetName "{game} card"
+    query = (sc + ' ' + cardName + numPart + ' ' + cleanSet + ' ' + gamePart + ' card').trim();
   }
   
   var base = 'https://www.ebay.com.au/sch/i.html?_nkw=' + encodeURIComponent(query) + '&LH_Sold=1&LH_Complete=1&_sop=13';

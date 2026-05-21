@@ -18,3 +18,9 @@
   to = "https://www.onepiece-cardgame.com/images/cardlist/card/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/tc-card/*"
+  to = "https://asia-tc.onepiece-cardgame.com/images/cardlist/card/:splat"
+  status = 200
+  force = true
