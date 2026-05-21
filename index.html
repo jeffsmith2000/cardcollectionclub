@@ -1577,7 +1577,7 @@ function switchGame(game) {
   // For Digimon: lazy-load the library on first switch
   if (game === 'dg' && !loadedGames['dg'] && typeof DIGIMON_LIBRARY === 'undefined') {
     var dgScript = document.createElement('script');
-    dgScript.src = 'card-library-digimon.js?v=1';
+    dgScript.src = 'card-library-digimon.js?v=2';
     dgScript.onload = function() { loadedGames['dg'] = true; updateSetDropdown(); browseLibrary(); };
     document.head.appendChild(dgScript);
   }
