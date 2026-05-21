@@ -664,11 +664,14 @@ a:hover{color:#f0c96e}
   </select>
 </div>
 <div class="lib-set-filter">
-<select id="libLang" onchange="updateSetDropdown();browseLibrary()"><option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option><option value="DE">Deutsch</option><option value="FR">Francais</option><option value="ES">Espanol</option><option value="IT">Italiano</option><option value="PT">Portugues</option><option value="KO">Korean</option></select>
+<select id="libLang" onchange="updateSetDropdown();browseLibrary();updateGapBanner()"><option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option><option value="DE">Deutsch</option><option value="FR">Francais</option><option value="ES">Espanol</option><option value="IT">Italiano</option><option value="PT">Portugues</option><option value="KO">Korean</option></select>
 <select id="libSet" onchange="browseLibrary()"><option value="">All Sets</option></select>
 <select id="libSort" onchange="browseLibrary()"><option value="set">By Set</option><option value="name">By Name</option><option value="newest">Newest First</option></select>
 </div>
 <div class="lib-stats" id="libStats"></div>
+<div id="libGapBanner" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(212,168,83,.12);border:1px solid var(--gold);border-radius:8px;font-size:.85rem;color:var(--gold);text-align:center">
+  <strong>🔧 We're still building this:</strong> <span id="libGapMessage">Some cards in this language don't have images yet.</span> Watch this space — full coverage coming.
+</div>
 </div>
 <!-- Price mode filters (original) -->
 <div id="priceFilters" style="display:none">
@@ -1678,6 +1681,33 @@ function switchGame(game) {
 
   updateSetDropdown();
   browseLibrary();
+  updateGapBanner();
+}
+
+// Show "image coverage in progress" banner for partial-coverage languages
+var GAP_LANGS = {
+  'pk-TH': '~58% of Thai Pokemon cards still need images',
+  'pk-ID': '~58% of Indonesian Pokemon cards still need images',
+  'pk-DE': '~24% of German Pokemon cards still need images (vintage 2002-2010 sets)',
+  'pk-JP': '~19% of Japanese Pokemon cards still need images (vintage E-Card/Neo/PCG era)',
+  'pk-FR': '~13% of French Pokemon cards still need images (vintage DP era + promos)',
+  'pk-IT': 'A small number of vintage Italian Pokemon cards still need images',
+  'pk-ES': 'A small number of vintage Spanish Pokemon cards still need images',
+  'pk-PT': 'A small number of vintage Portuguese Pokemon cards still need images'
+};
+
+function updateGapBanner() {
+  var banner = document.getElementById('libGapBanner');
+  if (!banner) return;
+  var lang = document.getElementById('libLang').value;
+  var key = currentGame + '-' + lang;
+  var msg = GAP_LANGS[key];
+  if (msg) {
+    document.getElementById('libGapMessage').textContent = msg;
+    banner.style.display = '';
+  } else {
+    banner.style.display = 'none';
+  }
 }
 
 function setSearchMode(mode) {
