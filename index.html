@@ -775,7 +775,7 @@ a:hover{color:#f0c96e}
 
 <script src="cards-data.js?v=2"></script>
 <script src="shops-data.js?v=4"></script>
-<script src="card-library.js?v=13" defer></script>
+<script src="card-library.js?v=14" defer></script>
 <script>
 // ==================== DATA ====================
 
@@ -1569,7 +1569,7 @@ function switchGame(game) {
   // For Pokemon: load multilang file in background on first switch
   if (game === 'pk' && !loadedGames['pk-ml'] && typeof POKEMON_ML_LIBRARY === 'undefined') {
     var mlScript = document.createElement('script');
-    mlScript.src = 'card-library-pokemon-multilang.js?v=1';
+    mlScript.src = 'card-library-pokemon-multilang.js?v=2';
     mlScript.onload = function() { loadedGames['pk-ml'] = true; browseLibrary(); };
     document.head.appendChild(mlScript);
   }
