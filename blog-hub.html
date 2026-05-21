@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495461200556880" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Card Collection Club | Pokemon & One Piece TCG News</title>
+<meta name="description" content="Expert guides, market reports, and collecting tips for Pokemon and One Piece TCG. Updated weekly by Card Collection Club.">
+<meta name="keywords" content="pokemon card blog, one piece tcg blog, card collecting tips, pokemon market report, card grading guide">
+<link rel="canonical" href="https://cardcollectionclub.com/blog">
+<meta property="og:title" content="Blog — Card Collection Club">
+<meta property="og:description" content="Expert guides, market reports, and collecting tips for Pokemon and One Piece TCG.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cardcollectionclub.com/blog">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a1a;--bg2:#12122a;--bg3:#1a1a3a;--gold:#FFD700;--cyan:#00D4FF;--text:#e8e8f0;--muted:#8888aa;--radius:12px;--max:1200px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* HEADER */
+header{background:rgba(10,10,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.1);padding:16px 0;position:sticky;top:0;z-index:100}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 24px}
+.logo{font-size:1.25rem;font-weight:800;color:var(--gold)}
+.logo span{color:var(--cyan)}
+nav a{color:var(--muted);margin-left:24px;font-size:.875rem;font-weight:500}nav a:hover{color:var(--gold);text-decoration:none}
+
+/* HERO */
+.blog-hero{text-align:center;padding:80px 24px 40px}
+.blog-hero h1{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.blog-hero p{color:var(--muted);margin-top:12px;font-size:1.1rem}
+
+/* SEARCH */
+.search-bar{max-width:600px;margin:0 auto 40px;position:relative}
+.search-bar input{width:100%;padding:14px 20px 14px 48px;background:var(--bg2);border:1px solid rgba(255,215,0,.15);border-radius:10px;color:var(--text);font-size:1rem;outline:none}
+.search-bar input:focus{border-color:var(--gold)}
+.search-bar::before{content:'🔍';position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.1rem}
+
+/* CATEGORIES */
+.categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.cat-btn{padding:8px 20px;border-radius:20px;border:1px solid rgba(255,215,0,.2);background:transparent;color:var(--muted);cursor:pointer;font-size:.875rem;transition:all .2s}
+.cat-btn:hover,.cat-btn.active{background:var(--gold);color:#0a0a1a;border-color:var(--gold)}
+
+/* GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;margin-bottom:80px}
+.blog-card{background:var(--bg2);border:1px solid rgba(255,215,0,.08);border-radius:var(--radius);overflow:hidden;transition:transform .2s,border-color .2s}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(255,215,0,.3)}
+.card-img{height:180px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.card-body{padding:20px}
+.card-cat{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);margin-bottom:8px}
+.card-body h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+.card-body h3 a{color:var(--text)}
+.card-body h3 a:hover{color:var(--gold);text-decoration:none}
+.card-meta{font-size:.8rem;color:var(--muted)}
+
+/* FOOTER */
+footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,215,0,.08);color:var(--muted);font-size:.85rem}
+
+@media(max-width:768px){
+  .blog-hero h1{font-size:1.8rem}
+  .blog-grid{grid-template-columns:1fr}
+}
+</style>
+<link rel="icon" type="image/jpeg" href="ccc-logo-icon.jpg">
+</head>
+<body>
+
+<header>
+<div class="header-inner">
+  <a href="/"><div class="logo">Card Collection <span>Club</span></div></a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/directory/">Directory</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/conventions">Events</a>
+    <a href="/pricing">Pro</a>
+  </nav>
+</div>
+</header>
+
+<section class="blog-hero">
+  <h1>The Card Collection Club Blog</h1>
+  <p>Market reports, collecting guides, and expert tips for Pokemon &amp; One Piece TCG</p>
+</section>
+
+<div class="container">
+  <div class="search-bar">
+    <input type="text" id="blogSearch" placeholder="Search articles..." oninput="filterPosts()">
+  </div>
+
+  <div class="categories">
+    <button class="cat-btn active" onclick="filterCat('all')">All</button>
+    <button class="cat-btn" onclick="filterCat('market')">Market Reports</button>
+    <button class="cat-btn" onclick="filterCat('guide')">Guides</button>
+    <button class="cat-btn" onclick="filterCat('pokemon')">Pokemon</button>
+    <button class="cat-btn" onclick="filterCat('onepiece')">One Piece</button>
+    <button class="cat-btn" onclick="filterCat('grading')">Grading</button>
+    <button class="cat-btn" onclick="filterCat('investing')">Investing</button>
+    <button class="cat-btn" onclick="filterCat('shops')">Shops</button>
+  </div>
+
+  <div class="blog-grid" id="blogGrid">
+    <!-- Posts injected by JS -->
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Card Collection Club. All rights reserved.</p>
+</footer>
+
+<script>
+const posts = [
+  {title:"Top 10 Pokemon Cards Worth Grading in 2026",cat:"grading",emoji:"💎",date:"Feb 16, 2026",url:"directory/blog/top-pokemon-cards-grading-2026.html"},
+  {title:"One Piece TCG Market Report — February 2026",cat:"market",emoji:"📊",date:"Feb 18, 2026",url:"directory/blog/one-piece-market-report-feb-2026.html"},
+  {title:"First Convention? Beginner's Guide to Buying & Selling Cards in Australia",cat:"guide",emoji:"🎪",date:"Feb 19, 2026",url:"directory/blog/convention-beginners-guide.html"},
+  {title:"Best Card Shops in Sydney",cat:"shops",emoji:"🗺️",date:"Feb 15, 2026",url:"directory/blog/best-card-shops-sydney.html"},
+  {title:"Best Card Shops in Melbourne",cat:"shops",emoji:"🗺️",date:"Feb 15, 2026",url:"directory/blog/best-card-shops-melbourne.html"},
+  {title:"Best Pokemon Cards to Invest in 2026",cat:"investing",emoji:"📈",date:"Feb 14, 2026",url:"directory/blog/best-pokemon-cards-invest-2026.html"},
+  {title:"Hot Pokemon Cards — February 2026",cat:"market",emoji:"🔥",date:"Feb 12, 2026",url:"directory/blog/hot-pokemon-cards-feb-2026.html"},
+  {title:"Hot One Piece Cards — February 2026",cat:"market",emoji:"🏴‍☠️",date:"Feb 12, 2026",url:"directory/blog/hot-one-piece-cards-feb-2026.html"},
+  {title:"PSA Grading Guide for Australia",cat:"grading",emoji:"🏅",date:"Feb 10, 2026",url:"directory/blog/psa-grading-guide-australia.html"},
+  {title:"How to Spot Fake Pokemon Cards",cat:"guide",emoji:"🔍",date:"Feb 8, 2026",url:"directory/blog/how-to-spot-fake-pokemon-cards.html"},
+  {title:"Top 10 Sealed Products to Invest In (2026)",cat:"investing",emoji:"📦",date:"Feb 20, 2026",url:"directory/blog/post-11-top-10-sealed-products-2026.html"},
+  {title:"PSA vs CGC vs BGS — Which Grading Company?",cat:"grading",emoji:"⚖️",date:"Feb 20, 2026",url:"directory/blog/post-12-psa-vs-cgc-vs-bgs-grading.html"},
+  {title:"One Piece OP-09 Set Review",cat:"onepiece",emoji:"🏴‍☠️",date:"Feb 20, 2026",url:"directory/blog/post-13-one-piece-op09-set-review.html"},
+  {title:"Best Pokemon Cards Under $50 AUD",cat:"pokemon",emoji:"💰",date:"Feb 20, 2026",url:"directory/blog/post-14-best-pokemon-cards-under-50-aud.html"},
+  {title:"How to Spot Resealed Booster Boxes",cat:"guide",emoji:"🚨",date:"Feb 20, 2026",url:"directory/blog/post-15-how-to-spot-resealed-booster-boxes.html"},
+  {title:"Japanese vs English One Piece — The Price Gap",cat:"onepiece",emoji:"🇯🇵",date:"Feb 20, 2026",url:"directory/blog/post-16-japanese-vs-english-one-piece-price-gap.html"},
+  {title:"Convention Selling Tips: Maximise Your Profits",cat:"guide",emoji:"💵",date:"Feb 20, 2026",url:"directory/blog/post-17-convention-selling-tips.html"},
+  {title:"Pokemon 151 — One Year Later",cat:"pokemon",emoji:"🎂",date:"Feb 20, 2026",url:"directory/blog/post-18-pokemon-151-one-year-later.html"},
+  {title:"Building a $10K Card Portfolio",cat:"investing",emoji:"🏦",date:"Feb 20, 2026",url:"directory/blog/post-19-building-10k-card-portfolio.html"},
+  {title:"Surging Stars Preview & Investment Guide",cat:"pokemon",emoji:"⭐",date:"Feb 20, 2026",url:"directory/blog/post-20-surging-stars-preview-investment.html"},
+  {title:"Prismatic Evolutions — Complete Guide",cat:"pokemon",emoji:"✨",date:"Feb 20, 2026",url:"directory/blog/post-29-prismatic-evolutions-guide.html"},
+  {title:"Make Money Selling Pokemon Cards in 2026",cat:"investing",emoji:"🤑",date:"Feb 20, 2026",url:"directory/blog/post-30-make-money-selling-pokemon-cards.html"},
+  {title:"One Piece TCG Beginner's Guide",cat:"onepiece",emoji:"🧭",date:"Feb 20, 2026",url:"directory/blog/post-22-one-piece-tcg-beginners-guide.html"},
+  {title:"Surging Sparks Chase Cards",cat:"pokemon",emoji:"⚡",date:"Feb 20, 2026",url:"directory/blog/post-24-surging-sparks-chase-cards.html"},
+];
+
+function renderPosts(list){
+  const grid=document.getElementById('blogGrid');
+  grid.innerHTML=list.map(p=>`
+    <div class="blog-card" data-cat="${p.cat}" data-title="${p.title.toLowerCase()}">
+      <div class="card-img">${p.emoji}</div>
+      <div class="card-body">
+        <div class="card-cat">${p.cat}</div>
+        <h3><a href="${p.url}">${p.title}</a></h3>
+        <div class="card-meta">${p.date}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterPosts(){
+  const q=document.getElementById('blogSearch').value.toLowerCase();
+  const filtered=posts.filter(p=>p.title.toLowerCase().includes(q));
+  renderPosts(filtered);
+}
+
+function filterCat(cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(cat==='all'){renderPosts(posts);return;}
+  renderPosts(posts.filter(p=>p.cat===cat));
+}
+
+renderPosts(posts);
+</script>
+</body>
+</html>

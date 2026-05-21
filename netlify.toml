@@ -1,13 +1,14 @@
 [build]
   publish = "."
+  command = "echo 'static site'"
 
-[[redirects]]
-  from = "https://www.cardcollectionclub.com/*"
-  to = "https://cardcollectionclub.com/:splat"
-  status = 301
-  force = true
+[build.environment]
+  NETLIFY_SKIP_FRAMEWORK_DETECTION = "true"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[dev]
+  framework = "#static"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"

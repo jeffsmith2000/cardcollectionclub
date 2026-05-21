@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R02TG0QTQF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R02TG0QTQF');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495461200556880" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Card Collection Club — Find Your Local Card Shop | Pokemon, One Piece & TCG Directory</title>
-<meta name="description" content="Australia's #1 trading card directory. Find card shops, upcoming card shows, release dates for Pokemon & One Piece TCG. 328+ shops across 12 countries.">
+<meta name="description" content="Australia's #1 trading card directory. Find card shops, upcoming card shows, release dates for Pokemon & One Piece TCG. 400+ shops across 12 countries, 175+ in Australia.">
 <meta property="og:title" content="Card Collection Club — Find Your Local Card Shop">
-<meta property="og:description" content="Australia's #1 trading card directory. 328+ shops, card shows, release calendar & more.">
+<meta property="og:description" content="Australia's #1 trading card directory. 400+ shops (175+ in Australia), card shows, release calendar & more.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cardcollectionclub.com">
-<meta property="og:image" content="https://images.pokemontcg.io/swsh12pt5/160_hires.png">
+<meta property="og:image" content="ccc-logo-full.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://cardcollectionclub.com">
+<link rel="icon" type="image/jpeg" href="ccc-logo-icon.jpg?v=2">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -48,12 +61,13 @@ a:hover{color:#f0c96e}
 .section.active{display:block}
 .container{max-width:1400px;margin:0 auto;padding:0 20px}
 
-/* AD SLOTS */
-.ad-slot{background:#111;border:1px dashed #333;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:#555;font-size:.75rem;margin:24px auto;text-align:center;overflow:hidden}
-.ad-leaderboard{max-width:728px;height:90px}
-.ad-sidebar{width:300px;height:250px}
-.ad-infeed{max-width:728px;height:90px}
-.ad-footer{max-width:728px;height:90px}
+/* AD SLOTS — hidden when no ad content loaded */
+.ad-slot{background:transparent;border:none;border-radius:var(--radius-sm);display:block;margin:24px auto;text-align:center;overflow:hidden;min-height:50px}
+.ad-leaderboard{max-width:728px}
+.ad-sidebar{max-width:300px}
+.ad-infeed{max-width:728px}
+.ad-footer{max-width:728px}
+@media(max-width:768px){.ad-leaderboard,.ad-infeed,.ad-footer{max-width:100%}}
 
 /* HERO */
 .hero{position:relative;padding:80px 0 60px;overflow:hidden;text-align:center}
@@ -100,11 +114,32 @@ a:hover{color:#f0c96e}
 .dir-controls select,.dir-controls input[type="text"]{padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.85rem}
 .dir-controls label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--text-dim);cursor:pointer}
 .dir-controls input[type="checkbox"]{accent-color:var(--gold)}
+.loc-row{display:flex;gap:8px;align-items:center;width:100%;margin-bottom:4px}
+.loc-row input{flex:1;min-width:180px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.85rem}
+.loc-row input:focus{border-color:var(--gold);outline:none}
+.loc-row{position:relative}
+.loc-suggest{position:absolute;top:100%;left:0;right:0;z-index:100;background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);max-height:260px;overflow-y:auto;display:none;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.loc-suggest.open{display:block}
+.loc-suggest-item{padding:10px 14px;cursor:pointer;font-size:.85rem;color:var(--text-mid);border-bottom:1px solid rgba(51,51,51,.5);display:flex;align-items:center;gap:8px;transition:background .15s}
+.loc-suggest-item:hover,.loc-suggest-item.active{background:rgba(212,168,83,.1);color:var(--gold)}
+.loc-suggest-item:last-child{border-bottom:none}
+.loc-suggest-item .flag{font-size:1rem}
+.loc-suggest-item .main{font-weight:600;color:var(--text)}
+.loc-suggest-item .sub{color:var(--text-dim);font-size:.8rem}
+.loc-btn{padding:10px 16px;background:var(--gold);color:#000;border:none;border-radius:var(--radius-sm);font-family:inherit;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.loc-btn:hover{background:#f0c96e}
+.loc-btn.secondary{background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.loc-btn.secondary:hover{border-color:var(--gold);color:var(--gold)}
+.loc-status{font-size:.8rem;color:var(--gold);margin-bottom:8px;display:none}
+.badge-distance{background:rgba(46,204,113,.15);color:#2ecc71;font-size:.75rem;padding:2px 8px;border-radius:12px;margin-left:auto;white-space:nowrap}
 .shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:24px 0}
 .shop-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .3s;position:relative}
 .shop-card:hover{transform:translateY(-2px);border-color:#555;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .shop-card.featured{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,83,.15)}
 .shop-card.featured::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;font-size:.7rem;background:var(--gold);color:#000;padding:2px 8px;border-radius:4px;font-weight:600}
+.shop-card.sponsored{border-color:var(--gold);box-shadow:0 0 28px rgba(212,168,83,.25);background:linear-gradient(180deg,rgba(212,168,83,.08),var(--card))}
+.shop-card.sponsored::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;font-size:.75rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:.3px}
+@media (min-width:720px){.shop-card.sponsored{grid-column:span 2}}
 .shop-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .shop-logo{width:48px;height:48px;border-radius:var(--radius-sm);background:#222;object-fit:contain;flex-shrink:0}
 .shop-name{font-size:1.05rem;font-weight:700;line-height:1.2}
@@ -146,7 +181,7 @@ a:hover{color:#f0c96e}
 .releases-tabs{display:flex;gap:8px;margin:24px 0}
 .releases-tabs button{padding:10px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-dim);font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s}
 .releases-tabs button.active{background:var(--gold);color:#000;border-color:var(--gold)}
-.release-item{display:grid;grid-template-columns:auto 1fr auto;gap:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:10px;align-items:center}
+.release-item{display:flex;gap:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:10px;align-items:center}
 .release-item.past{opacity:.5}
 .release-item.upcoming{border-left:3px solid var(--gold)}
 .release-date-box{text-align:center;min-width:60px}
@@ -155,7 +190,7 @@ a:hover{color:#f0c96e}
 .release-info h4{font-size:.95rem;font-weight:600;margin-bottom:2px}
 .release-info .release-meta{font-size:.75rem;color:var(--text-dim)}
 .release-price{font-size:.9rem;font-weight:700;color:var(--gold);white-space:nowrap}
-@media(max-width:600px){.release-item{grid-template-columns:auto 1fr;gap:12px}.release-price{grid-column:2}}
+@media(max-width:600px){.release-item{flex-wrap:wrap;gap:12px}.release-item img{height:60px!important}.release-price{margin-left:auto}}
 
 /* BLOG */
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin:24px 0}
@@ -252,7 +287,7 @@ a:hover{color:#f0c96e}
 .library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:24px 0}
 .library-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;transition:all .3s;position:relative}
 .library-card:hover{transform:translateY(-3px) scale(1.02);border-color:var(--gold);box-shadow:0 8px 24px rgba(200,164,21,.15)}
-.library-card img{width:100%;aspect-ratio:5/7;object-fit:cover;display:block;background:#111}
+.library-card img{width:100%;aspect-ratio:5/7;object-fit:contain;display:block;background:#111}
 .library-card .lc-info{padding:6px 8px}
 .library-card .lc-name{font-size:.7rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .library-card .lc-set{font-size:.6rem;color:var(--text-dim)}
@@ -267,8 +302,13 @@ a:hover{color:#f0c96e}
 .lib-set-filter{max-width:700px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .lib-set-filter select{padding:10px 16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.85rem;max-width:250px}
 .lib-stats{text-align:center;color:var(--text-dim);font-size:.8rem;margin-bottom:16px}
-.card-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.card-modal-img{max-height:90vh;max-width:90vw;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.card-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:default;backdrop-filter:blur(8px)}
+.card-modal-content{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:400px;padding:24px}
+.card-modal-img{max-height:60vh;max-width:320px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.card-modal-info{width:100%;max-width:320px}
+.ebay-btn:hover{opacity:.9;transform:translateY(-1px)}
+.ebay-btn-sold:hover{background:rgba(0,100,210,.1)!important}
+@media(min-width:768px){.card-modal-content{flex-direction:row;max-width:700px}.card-modal-img{max-height:70vh;max-width:350px}.card-modal-info{padding-left:16px}}
 .card-result{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s;position:relative}
 .card-result:hover{transform:translateY(-2px);border-color:#555;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .card-result-img{height:200px;background:#111;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -387,53 +427,54 @@ a:hover{color:#f0c96e}
 <!-- HEADER -->
 <header class="header">
 <div class="header-inner">
-<div class="logo" onclick="switchTab('home')"><img src="assets/ccc-logo-icon.jpg" alt="CCC" style="height:36px;border-radius:6px"> <span>Card Collection Club</span></div>
+<div class="logo" onclick="switchTab('home')"><img src="ccc-logo-icon.jpg?v=2" alt="CCC" style="height:36px;width:36px;object-fit:contain;border-radius:6px;flex-shrink:0"> <span style="font-size:1rem;font-weight:800;color:var(--gold);white-space:nowrap">CCC</span></div>
 <button class="mobile-menu-btn" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
 <nav class="nav" id="mainNav">
 <a href="#" data-tab="home" class="active" onclick="switchTab('home')">Home</a>
 <a href="#" data-tab="directory" onclick="switchTab('directory')">Directory</a>
 <a href="#" data-tab="shows" onclick="switchTab('shows')">Card Shows</a>
 <a href="#" data-tab="releases" onclick="switchTab('releases')">Releases</a>
-<a href="#" data-tab="search" onclick="switchTab('search')">🔍 Search</a>
-<a href="#" data-tab="pokedex" onclick="switchTab('pokedex')">Pokédex</a>
-<a href="#" data-tab="blog" onclick="switchTab('blog')">Blog</a>
+<a href="#" data-tab="search" onclick="switchTab('search')">🔍 Card Sets</a>
+<a href="/pokedex/index.html">Pokédex</a>
+<!-- Blog hidden until content reviewed -->
+<!-- <a href="#" data-tab="blog" onclick="switchTab('blog')">Blog</a> -->
 <a href="#" data-tab="register" onclick="switchTab('register')">Register</a>
-<a href="#" data-tab="pro" onclick="switchTab('pro')">Go Pro</a>
 </nav>
 </div>
 </header>
 
 <!-- AD LEADERBOARD -->
-<div class="ad-slot ad-leaderboard" style="margin-top:0;border-radius:0">Ad — 728×90 Leaderboard</div>
+
 
 <!-- HOME / HERO -->
 <section class="section active" id="sec-home">
 <div class="hero">
 <div class="floating-cards">
-<img class="floating-card" src="https://images.pokemontcg.io/swsh12pt5/160_hires.png" alt="Charizard VSTAR" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv4/227_hires.png" alt="Pikachu ex SAR" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv3pt5/207_hires.png" alt="Mew ex" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv1/254_hires.png" alt="Miraidon ex" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv3/197_hires.png" alt="Umbreon ex" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv4pt5/187_hires.png" alt="Rayquaza VMAX" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/swsh9/186_hires.png" alt="Arceus VSTAR" loading="lazy">
-<img class="floating-card" src="https://images.pokemontcg.io/sv3pt5/203_hires.png" alt="Gardevoir ex" loading="lazy">
-<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP01-120_p1.png" alt="One Piece Shanks" loading="lazy">
-<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP02-120_p1.png" alt="One Piece Luffy" loading="lazy">
-<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP03-120_p1.png" alt="One Piece Zoro" loading="lazy">
-<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP04-119_p1.png" alt="One Piece Yamato" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/swsh12pt5/160_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv4/227_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv3pt5/207_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv1/254_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv3/197_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv4pt5/187_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/swsh9/186_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://images.pokemontcg.io/sv3pt5/203_hires.png" alt="" loading="lazy">
+<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP01-120_p1.png" alt="" loading="lazy">
+<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP02-120_p1.png" alt="" loading="lazy">
+<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP03-120_p1.png" alt="" loading="lazy">
+<img class="floating-card" src="https://en.onepiece-cardgame.com/images/cardlist/card/OP04-119_p1.png" alt="" loading="lazy">
 </div>
 <div class="container" style="position:relative;z-index:1">
+
 <h1>Find Your Local Card Shop</h1>
-<p>Australia's #1 directory for Pokemon, One Piece & trading card shops. 328+ stores across 12 countries.</p>
+<p>Australia's #1 directory for Pokemon, One Piece & trading card shops. 400+ stores across 12 countries — 175+ in Australia.</p>
 <div class="hero-search">
 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 <input type="text" placeholder="Search shops by name or city..." id="heroSearch" onkeyup="if(event.key==='Enter'){switchTab('directory');document.getElementById('dirSearch').value=this.value;filterShops()}">
 </div>
 <div class="hero-stats">
-<div class="hero-stat"><div class="num" id="statAU">102</div><div class="label">🇦🇺 Australia</div></div>
+<div class="hero-stat"><div class="num" id="statAU">176</div><div class="label">🇦🇺 Australia</div></div>
 <div class="hero-stat"><div class="num">26</div><div class="label">🇳🇿 New Zealand</div></div>
-<div class="hero-stat"><div class="num">78</div><div class="label">🇺🇸 United States</div></div>
+<div class="hero-stat"><div class="num">77</div><div class="label">🇺🇸 United States</div></div>
 <div class="hero-stat"><div class="num">32</div><div class="label">🇨🇦 Canada</div></div>
 <div class="hero-stat"><div class="num">25</div><div class="label">🇬🇧 UK</div></div>
 <div class="hero-stat"><div class="num">20</div><div class="label">🇯🇵 Japan</div></div>
@@ -444,40 +485,52 @@ a:hover{color:#f0c96e}
 <div class="hero-stat"><div class="num">6</div><div class="label">🇵🇭 Philippines</div></div>
 <div class="hero-stat"><div class="num">6</div><div class="label">🇲🇾 Malaysia</div></div>
 </div>
-<div class="email-banner">
-<h3>Join 1,200+ Collectors</h3>
-<p>Get notified about new releases, hot cards & card shows</p>
+<div class="email-banner" style="background:var(--card);border:1px solid var(--border);border-radius:16px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:32px">
+<div style="background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:12px;padding:24px 32px;max-width:500px;width:100%;text-align:center">
+<h3 style="margin-bottom:4px">Join Our Newsletter</h3>
+<p style="font-size:.85rem;color:var(--text-dim);margin-bottom:12px">Get notified about new releases, hot cards & card shows</p>
 <div class="form-row">
 <input type="text" placeholder="Your name" id="heroName">
 <input type="email" placeholder="Email address" id="heroEmail">
-<button onclick="signupEmail('heroName','heroEmail')">Subscribe</button>
+<button onclick="signupEmail('heroName','heroEmail')">Join Newsletter</button>
 </div>
 </div>
 </div>
 </div>
+</div>
+<!-- Ad: Leaderboard after hero -->
+<div class="ad-slot ad-leaderboard"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3495461200556880" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </section>
 
 <!-- DIRECTORY -->
 <section class="section" id="sec-directory">
 <div class="container" style="padding-top:32px">
 <h2 class="section-title">Card Shop Directory</h2>
-<p class="section-subtitle">Browse 328+ trading card shops worldwide</p>
+<p class="section-subtitle">Browse 400+ trading card shops worldwide — 175+ in Australia</p>
 <div class="dir-layout">
 <div>
+<div class="loc-row">
+<input type="text" id="locSearch" placeholder="Enter suburb, city or postcode..." autocomplete="off" oninput="onLocInput()" onkeydown="onLocKeydown(event)">
+<div class="loc-suggest" id="locSuggest"></div>
+<button class="loc-btn" onclick="findNearest()">🔍 Find Nearest</button>
+<button class="loc-btn secondary" onclick="useMyLocation()" title="Use my location">📍</button>
+<button class="loc-btn secondary" onclick="clearLocation()" id="clearLocBtn" style="display:none">✕ Clear</button>
+</div>
+<div class="loc-status" id="locStatus"></div>
 <div class="dir-controls">
 <input type="text" id="dirSearch" placeholder="Search name or city..." oninput="filterShops()" style="flex:1;min-width:200px">
 <select id="filterCountry" onchange="filterShops()"><option value="">All Countries</option><option value="AU">🇦🇺 Australia</option><option value="NZ">🇳🇿 New Zealand</option><option value="US">🇺🇸 USA</option><option value="CA">🇨🇦 Canada</option><option value="GB">🇬🇧 UK</option><option value="JP">🇯🇵 Japan</option><option value="DE">🇩🇪 Germany</option><option value="FR">🇫🇷 France</option><option value="SG">🇸🇬 Singapore</option><option value="NL">🇳🇱 Netherlands</option><option value="PH">🇵🇭 Philippines</option><option value="MY">🇲🇾 Malaysia</option></select>
 <select id="filterSpecialty" onchange="filterShops()"><option value="">All Specialties</option><option value="Pokemon">Pokemon</option><option value="One Piece">One Piece</option><option value="MTG">MTG</option><option value="Yu-Gi-Oh">Yu-Gi-Oh</option></select>
 <select id="filterType" onchange="filterShops()"><option value="">All Types</option><option value="physical">Physical Store</option><option value="online">Online Store</option><option value="both">Both</option></select>
 <label><input type="checkbox" id="filterTournaments" onchange="filterShops()"> Tournaments</label>
-<select id="sortBy" onchange="filterShops()"><option value="name">Sort: Name</option><option value="city">Sort: City</option><option value="country">Sort: Country</option></select>
+<select id="sortBy" onchange="filterShops()"><option value="name">Sort: Name</option><option value="city">Sort: City</option><option value="country">Sort: Country</option><option value="distance">Sort: Distance</option></select>
 </div>
 <div class="results-count" id="resultsCount"></div>
 <div class="shop-grid" id="shopGrid"></div>
 <div class="pagination" id="pagination"></div>
 </div>
 <div class="dir-sidebar">
-<div class="ad-slot ad-sidebar">Ad — 300×250 Sidebar</div>
+<div class="ad-slot ad-sidebar"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3495461200556880" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </div>
 </div>
 </div>
@@ -486,10 +539,10 @@ a:hover{color:#f0c96e}
 <!-- CARD SHOWS -->
 <section class="section" id="sec-shows">
 <div class="container" style="padding-top:32px">
-<h2 class="section-title">Australian Card Shows & Events 2026</h2>
-<p class="section-subtitle">Conventions, tournaments, meetups & more</p>
+<h2 class="section-title">Card Shows & Events 2026</h2>
+<p class="section-subtitle">Conventions, tournaments & meetups — Australia & worldwide</p>
 <div class="shows-controls">
-<select id="filterState" onchange="filterShows()"><option value="">All States</option><option value="VIC">VIC</option><option value="NSW">NSW</option><option value="QLD">QLD</option><option value="WA">WA</option><option value="SA">SA</option><option value="ACT">ACT</option><option value="TAS">TAS</option><option value="National">National</option></select>
+<select id="filterState" onchange="filterShows()"><option value="">All Regions</option><option value="NSW">NSW</option><option value="VIC">VIC</option><option value="QLD">QLD</option><option value="WA">WA</option><option value="SA">SA</option><option value="ACT">ACT</option><option value="TAS">TAS</option><option value="National">National</option><option value="International">🌏 International</option></select>
 <button class="btn btn-outline" onclick="openSubmitEvent()">📝 Submit an Event</button>
 </div>
 <div id="showsList"></div>
@@ -512,35 +565,6 @@ a:hover{color:#f0c96e}
 </div>
 </section>
 
-<!-- POKÉDEX -->
-<section class="section" id="sec-pokedex">
-<div class="container" style="padding-top:32px">
-<h2 class="section-title" style="font-size:1.8rem;font-weight:800;margin-bottom:8px">Pokédex</h2>
-<p style="color:var(--text-dim);margin-bottom:24px">Browse all 1,350 Pokémon — stats, evolution chains, game appearances & TCG cards.</p>
-<div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
-<input type="text" id="dexSearch" placeholder="Search Pokémon..." oninput="filterDex()" style="flex:1;min-width:200px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.9rem">
-<select id="dexType" onchange="filterDex()" style="padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.85rem">
-<option value="">All Types</option>
-<option value="normal">Normal</option><option value="fire">Fire</option><option value="water">Water</option>
-<option value="electric">Electric</option><option value="grass">Grass</option><option value="ice">Ice</option>
-<option value="fighting">Fighting</option><option value="poison">Poison</option><option value="ground">Ground</option>
-<option value="flying">Flying</option><option value="psychic">Psychic</option><option value="bug">Bug</option>
-<option value="rock">Rock</option><option value="ghost">Ghost</option><option value="dragon">Dragon</option>
-<option value="dark">Dark</option><option value="steel">Steel</option><option value="fairy">Fairy</option>
-</select>
-<select id="dexGen" onchange="filterDex()" style="padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:inherit;font-size:.85rem">
-<option value="">All Generations</option>
-<option value="1">Gen I (1-151)</option><option value="2">Gen II (152-251)</option><option value="3">Gen III (252-386)</option>
-<option value="4">Gen IV (387-493)</option><option value="5">Gen V (494-649)</option><option value="6">Gen VI (650-721)</option>
-<option value="7">Gen VII (722-809)</option><option value="8">Gen VIII (810-905)</option><option value="9">Gen IX (906-1025)</option>
-</select>
-</div>
-<div id="dexCount" style="font-size:.85rem;color:var(--text-dim);margin-bottom:16px"></div>
-<div id="dexGrid" class="shop-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px"></div>
-<div id="dexPagination" class="pagination"></div>
-</div>
-</section>
-
 <!-- BLOG -->
 <section class="section" id="sec-blog">
 <div class="container" style="padding-top:32px">
@@ -556,7 +580,9 @@ a:hover{color:#f0c96e}
 <h2 class="section-title">Register Your Shop</h2>
 <p class="section-subtitle">Get listed on Australia's #1 card shop directory</p>
 <div class="register-form" id="registerFormWrap">
-<form id="registerForm" onsubmit="submitRegistration(event)">
+<form id="registerForm" name="shop-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitRegistration(event)">
+<input type="hidden" name="form-name" value="shop-registration">
+<p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
 <div class="form-grid">
 <div class="form-group"><label>Business Name *</label><input type="text" required id="regName"></div>
 <div class="form-group"><label>Country *</label><select required id="regCountry"><option value="">Select</option><option value="AU">Australia</option><option value="NZ">New Zealand</option><option value="US">United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="JP">Japan</option><option value="Other">Other</option></select></div>
@@ -605,10 +631,10 @@ a:hover{color:#f0c96e}
 </div>
 <h3 class="section-title" style="text-align:center;font-size:1.3rem;margin-top:48px">Why List Your Shop?</h3>
 <div class="benefits-grid">
-<div class="benefit-card"><div class="icon">👀</div><h4>Get Discovered</h4><p>1,200+ collectors browse our directory monthly looking for local shops.</p></div>
+<div class="benefit-card"><div class="icon">👀</div><h4>Get Discovered</h4><p>Collectors browse our directory looking for local shops.</p></div>
 <div class="benefit-card"><div class="icon">📈</div><h4>Drive Traffic</h4><p>Direct links to your website, Instagram, and Google Maps listing.</p></div>
 <div class="benefit-card"><div class="icon">🏆</div><h4>Build Credibility</h4><p>Featured listings and verified badges help you stand out.</p></div>
-<div class="benefit-card"><div class="icon">🆓</div><h4>Free to List</h4><p>Basic listings are completely free. Upgrade to Pro for premium features.</p></div>
+<div class="benefit-card"><div class="icon">🆓</div><h4>Free to List</h4><p>Basic listings are completely free. More features coming soon.</p></div>
 </div>
 </div>
 </section>
@@ -618,20 +644,23 @@ a:hover{color:#f0c96e}
 <div class="container">
 <div class="search-hero">
 <h2>🔍 Card Library</h2>
-<p class="section-subtitle">Browse every Pokemon & One Piece card ever printed — English & Japanese</p>
-<div class="search-mode-toggle">
-<button class="active" onclick="setSearchMode('browse')">🎴 Browse Cards</button>
-<button onclick="setSearchMode('price')">💰 Price Search</button>
-</div>
+<p class="section-subtitle" id="libSubtitle">Browse every Pokemon card ever printed — all languages</p>
+
 <div class="search-bar-wrap">
 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 <input type="text" placeholder="Search any Pokemon or One Piece card..." id="cardSearch" oninput="handleSearch()">
 </div>
 <!-- Browse mode filters -->
 <div id="browseFilters">
+<span id="libLoadStatus" style="font-size:.8rem;color:var(--gold);display:none">Loading...</span>
+<div class="lib-set-filter" style="margin-bottom:8px">
+  <select id="libGame" onchange="switchGame(this.value)" style="max-width:200px;font-weight:600;border-color:var(--gold)">
+    <option value="pk">🎴 Pokemon</option>
+    <option value="op">⚓ One Piece</option>
+  </select>
+</div>
 <div class="lib-set-filter">
-<select id="libTcg" onchange="updateSetDropdown();browseLibrary()"><option value="">All TCGs</option><option value="pk">Pokemon</option><option value="op">One Piece</option></select>
-<select id="libLang" onchange="updateSetDropdown();browseLibrary()"><option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option></select>
+<select id="libLang" onchange="updateSetDropdown();browseLibrary()"><option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option><option value="DE">Deutsch</option><option value="FR">Francais</option><option value="ES">Espanol</option><option value="IT">Italiano</option><option value="PT">Portugues</option><option value="KO">Korean</option></select>
 <select id="libSet" onchange="browseLibrary()"><option value="">All Sets</option></select>
 <select id="libSort" onchange="browseLibrary()"><option value="set">By Set</option><option value="name">By Name</option><option value="newest">Newest First</option></select>
 </div>
@@ -656,188 +685,11 @@ a:hover{color:#f0c96e}
 <div id="priceResults" style="display:none">
 <div class="results-count" id="cardResultsCount"></div>
 <div class="card-results-grid" id="cardResultsGrid"></div>
-<div class="search-upsell" id="searchUpsell" style="display:none">
-<h3>🔒 Go Pro to See All Results</h3>
-<p style="color:var(--text-dim);margin-bottom:16px">Free members can view 3 cards. Pro members get unlimited search with full price data, trends & grading analysis.</p>
-<button class="btn" onclick="switchTab('pro')">Unlock All Cards — $9.99/mo</button>
-</div>
 </div>
 </div>
 </section>
 
-<!-- GO PRO -->
-<section class="section" id="sec-pro">
-<div class="container">
-<!-- Hero -->
-<div class="pro-hero">
-<h1>Unlock the Full Card Intelligence Platform</h1>
-<p class="pro-subtitle">Price data, grading ROI, market alerts, flipper picks & portfolio tracking — everything serious collectors need.</p>
-<div class="pro-price-hero">$9.99 <span>AUD/month</span></div>
-<p style="color:var(--text-dim);font-size:.85rem;margin-top:8px">Cancel anytime · No lock-in · Instant access</p>
-</div>
-
-<!-- Comparison Table -->
-<div class="demo-section">
-<h3>Free vs Pro</h3>
-<p class="demo-subtitle">See what you're missing</p>
-<div class="pro-comparison">
-<table>
-<thead><tr><th>Feature</th><th>Free</th><th class="pro-col-header">Pro $9.99/mo</th></tr></thead>
-<tbody>
-<tr><td>Directory access</td><td>✅</td><td>✅</td></tr>
-<tr><td>Card shows calendar</td><td>✅</td><td>✅</td></tr>
-<tr><td>Release calendar</td><td>✅</td><td>✅</td></tr>
-<tr><td>Blog access</td><td>✅</td><td>✅</td></tr>
-<tr><td>Card search</td><td>3 results</td><td style="color:var(--gold);font-weight:700">Unlimited</td></tr>
-<tr><td>Full price data (Ungraded/PSA 9/PSA 10)</td><td>❌</td><td>✅</td></tr>
-<tr><td>Price alerts</td><td>❌</td><td style="color:var(--gold)">✅ 10 alerts</td></tr>
-<tr><td>Portfolio tracker</td><td>❌</td><td>✅</td></tr>
-<tr><td>Weekly market report</td><td>❌</td><td>✅</td></tr>
-<tr><td>Flipper picks</td><td>❌</td><td style="color:var(--gold)">✅ 5/week</td></tr>
-<tr><td>PSA grading ROI calculator</td><td>❌</td><td>✅</td></tr>
-<tr><td>Sealed product alerts</td><td>❌</td><td>✅</td></tr>
-<tr><td>Priority shop listing</td><td>❌</td><td>✅</td></tr>
-<tr><td>Analytics dashboard</td><td>❌</td><td>✅</td></tr>
-<tr><td>Verified badge</td><td>❌</td><td>✅</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<!-- Portfolio Tracker Preview -->
-<div class="demo-section">
-<h3>📊 Portfolio Tracker</h3>
-<p class="demo-subtitle">Track your collection's value in real-time</p>
-<div class="demo-card locked">
-<div class="portfolio-total">
-<div><div style="font-size:.8rem;color:var(--text-dim)">Total Portfolio Value</div><div class="total-value">$4,782.50</div></div>
-<div style="text-align:right"><div style="font-size:.8rem;color:var(--text-dim)">30-Day Change</div><div class="total-gain trend-up">+$347.00 (+7.8%)</div></div>
-</div>
-<div class="mini-chart" id="portfolioChart"></div>
-<table class="portfolio-table">
-<thead><tr><th>Card</th><th>Bought</th><th>Current</th><th>Gain/Loss</th></tr></thead>
-<tbody>
-<tr><td>Charizard ex SAR (SV4)</td><td>$85.00</td><td>$125.00</td><td class="trend-up">+$40.00 (+47%)</td></tr>
-<tr><td>Umbreon VMAX Alt Art</td><td>$320.00</td><td>$450.00</td><td class="trend-up">+$130.00 (+41%)</td></tr>
-<tr><td>Shanks Manga Art (OP01)</td><td>$280.00</td><td>$420.00</td><td class="trend-up">+$140.00 (+50%)</td></tr>
-<tr><td>Luffy Gear 5 Leader</td><td>$180.00</td><td>$165.00</td><td class="trend-down">-$15.00 (-8%)</td></tr>
-<tr><td>Moonbreon (JP)</td><td>$1,200.00</td><td>$1,350.00</td><td class="trend-up">+$150.00 (+13%)</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<!-- Price Alert Preview -->
-<div class="demo-section">
-<h3><span class="alert-bell">🔔<span class="badge-count">4</span></span> Price Alerts</h3>
-<p class="demo-subtitle">Never miss a price movement</p>
-<div class="demo-card locked">
-<div class="alert-card"><div class="alert-icon">📉</div><div><h4>Charizard ex SAR dropped below $100!</h4><p>Was $125 → Now $98. Your alert triggered at $100. 2 hours ago</p></div></div>
-<div class="alert-card"><div class="alert-icon">📈</div><div><h4>Shanks Manga Art hit new high — $450!</h4><p>Up 12% this week. Your target price of $400 exceeded. 5 hours ago</p></div></div>
-<div class="alert-card"><div class="alert-icon">🔥</div><div><h4>Umbreon VMAX Alt Art spiking!</h4><p>+8% in 24 hours. Currently $485. Unusual volume detected. 1 day ago</p></div></div>
-<div class="alert-card"><div class="alert-icon">📦</div><div><h4>Prismatic Evolutions ETB restocked at Gameology!</h4><p>Sealed product alert: $89.99 — below your max price of $95. 1 day ago</p></div></div>
-</div>
-</div>
-
-<!-- Flipper Picks Preview -->
-<div class="demo-section">
-<h3>💰 Flipper Picks of the Week</h3>
-<p class="demo-subtitle">Get 5 undervalued picks every week</p>
-<div class="flipper-grid" id="flipperGrid">
-<div class="flipper-card"><div class="confidence">🟢</div><h4>Mewtwo ex SAR</h4><div class="buy-price">Buy: $42</div><div class="sell-price">Sell Target: $68</div><div class="profit">+$26 profit</div></div>
-<div class="flipper-card"><div class="confidence">🟢</div><h4>Nami OP01 Alt Art</h4><div class="buy-price">Buy: $85</div><div class="sell-price">Sell Target: $130</div><div class="profit">+$45 profit</div></div>
-<div class="flipper-card"><div class="confidence">🟡</div><h4>Rayquaza VMAX Alt</h4><div class="buy-price">Buy: $180</div><div class="sell-price">Sell Target: $245</div><div class="profit">+$65 profit</div></div>
-<div class="flipper-card blurred"><div class="confidence">🟢</div><h4>████████</h4><div class="buy-price">Buy: $██</div><div class="sell-price">Sell Target: $███</div><div class="profit">+$██ profit</div></div>
-<div class="flipper-card blurred"><div class="confidence">🟡</div><h4>████████</h4><div class="buy-price">Buy: $██</div><div class="sell-price">Sell Target: $███</div><div class="profit">+$██ profit</div></div>
-</div>
-<p style="text-align:center;color:var(--gold);margin-top:16px;font-weight:600">🔒 Go Pro to see all 5 picks every week</p>
-</div>
-
-<!-- Market Report Preview -->
-<div class="demo-section">
-<h3>📰 Weekly Market Report</h3>
-<p class="demo-subtitle">Full report delivered to your inbox every Monday</p>
-<div class="demo-card locked">
-<h4 style="margin-bottom:4px">Week of Feb 10 – Feb 16, 2026</h4>
-<p style="font-size:.8rem;color:var(--text-dim);margin-bottom:16px">Top Movers — Australian Market (AUD)</p>
-<table class="report-table">
-<thead><tr><th>Card</th><th>Last Week</th><th>This Week</th><th>Change</th></tr></thead>
-<tbody>
-<tr><td>Charizard ex SAR (SV4)</td><td>$118</td><td>$125</td><td class="trend-up">+5.9%</td></tr>
-<tr><td>Pikachu VMAX Rainbow</td><td>$285</td><td>$310</td><td class="trend-up">+8.8%</td></tr>
-<tr><td>Shanks Manga Art</td><td>$390</td><td>$420</td><td class="trend-up">+7.7%</td></tr>
-<tr><td>Luffy Gear 5 Leader</td><td>$175</td><td>$165</td><td class="trend-down">-5.7%</td></tr>
-<tr><td>Yamato SEC (OP04)</td><td>$95</td><td>$88</td><td class="trend-down">-7.4%</td></tr>
-</tbody>
-</table>
-<div class="mini-chart" id="marketChart"></div>
-</div>
-</div>
-
-<!-- PSA Grading Calculator Preview -->
-<div class="demo-section">
-<h3>🏆 PSA Grading ROI Calculator</h3>
-<p class="demo-subtitle">Unlimited PSA calculations with Pro</p>
-<div class="demo-card locked">
-<div class="psa-calc">
-<input type="text" value="Umbreon VMAX Alt Art (Evolving Skies)" readonly style="text-align:center;border-color:var(--gold)">
-<div class="psa-result">
-<div class="price-row"><span class="label">Raw (Ungraded) Value</span><span class="val">$320.00</span></div>
-<div class="price-row"><span class="label">PSA 9 Value</span><span class="val">$420.00</span></div>
-<div class="price-row"><span class="label">PSA 10 Value</span><span class="val">$850.00</span></div>
-<div class="price-row"><span class="label">Grading Cost (PSA)</span><span class="val" style="color:var(--onepiece-red)">-$25.00 AUD</span></div>
-<div class="price-row"><span class="label">Profit if PSA 9</span><span class="val trend-up">+$75.00</span></div>
-<div class="price-row"><span class="label">Profit if PSA 10</span><span class="val trend-up">+$505.00</span></div>
-<div class="verdict" style="font-size:1.3rem;font-weight:800;text-align:center;margin-top:16px;color:#2ecc71">✅ GRADE IT — High ROI potential</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Testimonials -->
-<div class="demo-section">
-<h3>What Collectors Are Saying</h3>
-<div class="testimonials">
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>"The flipper picks alone have paid for my Pro subscription 10x over. Picked up a Shanks Manga Art at $280 based on their tip — now it's $420."</p>
-<div class="author">— Jake M., Melbourne collector</div>
-</div>
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>"I was grading cards blind before CCC Pro. The PSA calculator saved me from grading 3 cards that weren't worth it. Literally saved hundreds."</p>
-<div class="author">— Sarah T., Sydney grader</div>
-</div>
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>"The weekly market report is my Monday morning ritual. Best $10 I spend each month — I've caught every major One Piece price spike this year."</p>
-<div class="author">— Daniel K., Brisbane One Piece collector</div>
-</div>
-</div>
-</div>
-
-<!-- FAQ -->
-<div class="demo-section">
-<h3>Frequently Asked Questions</h3>
-<div class="faq-list">
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How much does Pro cost?</div><div class="faq-a">Pro is $9.99 AUD per month. No lock-in contracts — cancel anytime from your account dashboard.</div></div>
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I cancel anytime?</div><div class="faq-a">Yes! Cancel with one click from your dashboard. You'll keep Pro access until the end of your billing period.</div></div>
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What's included in the weekly market report?</div><div class="faq-a">Top movers, price trend analysis, upcoming release impact predictions, sealed product deals, and flipper opportunities across Pokemon and One Piece TCG.</div></div>
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Are the prices in AUD?</div><div class="faq-a">Yes! All prices are in Australian Dollars. We track prices from major Australian retailers, eBay AU, and international sources with AUD conversion.</div></div>
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How accurate are the price estimates?</div><div class="faq-a">Our prices are aggregated from recent eBay sales, TCGplayer, and Australian marketplace data. They're updated weekly and represent fair market value.</div></div>
-<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Do I need Pro to use the directory?</div><div class="faq-a">No! The shop directory, card shows calendar, release calendar, and blog are all free. Pro unlocks advanced features like unlimited search, price data, portfolio tracking, and more.</div></div>
-</div>
-</div>
-
-<!-- CTA -->
-<div class="cta-section">
-<h2 style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:8px">Ready to Level Up Your Collection?</h2>
-<p style="color:var(--text-dim);margin-bottom:24px">Join hundreds of Australian collectors using Pro to make smarter decisions.</p>
-<button class="cta-btn" onclick="alert('Coming Soon! Pro launches March 2026. Join the waitlist by subscribing to our newsletter.')">🚀 Join Pro — $9.99/month</button>
-<p style="color:var(--text-dim);font-size:.75rem;margin-top:12px">Coming Soon — March 2026</p>
-</div>
-</div>
-</section>
+<!-- PRO SECTION REMOVED — saved to pro-features-backup/ -->
 
 <!-- SUBMIT EVENT MODAL -->
 <div class="modal-overlay" id="eventModal">
@@ -858,11 +710,17 @@ a:hover{color:#f0c96e}
 </div>
 </div>
 
+
+
+<!-- Ad: Footer leaderboard -->
+<div class="ad-slot ad-footer" style="max-width:1400px;padding:0 20px;margin:32px auto"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3495461200556880" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
 <!-- FOOTER -->
+
 <footer class="footer">
 <div class="footer-grid">
 <div>
-<h4>🃏 Card Collection Club</h4>
+<h4><img src="ccc-logo-icon.jpg?v=2" alt="CCC" style="height:24px;vertical-align:middle;margin-right:6px;border-radius:3px"> Card Collection Club</h4>
 <p style="margin-bottom:12px">Australia's #1 directory for Pokemon, One Piece & TCG collectors. Find shops, card shows, releases, and community.</p>
 <p>📧 cardcollectionclub@gmail.com</p>
 <p>📸 <a href="https://instagram.com/cardcollectionclub" target="_blank">@cardcollectionclub</a></p>
@@ -873,16 +731,17 @@ a:hover{color:#f0c96e}
 <li><a href="#" onclick="switchTab('directory')">All Shops</a></li>
 <li><a href="#" onclick="switchTab('shows')">Card Shows</a></li>
 <li><a href="#" onclick="switchTab('releases')">Releases</a></li>
-<li><a href="#" onclick="switchTab('search')">Search Cards</a></li>
-<li><a href="#" onclick="switchTab('pokedex')">Pokédex</a></li>
-<li><a href="#" onclick="switchTab('blog')">Blog</a></li>
+<li><a href="#" onclick="switchTab('search')">Card Sets</a></li>
+<li><a href="/pokedex/index.html">Pokédex</a></li>
+<!-- Blog hidden until content reviewed -->
+<!-- <li><a href="#" onclick="switchTab('blog')">Blog</a></li> -->
 </ul>
 </div>
 <div>
 <h4>For Shops</h4>
 <ul class="footer-links">
 <li><a href="#" onclick="switchTab('register')">Register</a></li>
-<li><a href="#" onclick="switchTab('pro')">Go Pro</a></li>
+
 </ul>
 </div>
 <div>
@@ -898,7 +757,7 @@ a:hover{color:#f0c96e}
 </div>
 <div>
 <h4>Stay Updated</h4>
-<p style="margin-bottom:8px;font-size:.8rem">Join 1,200+ collectors</p>
+<p style="margin-bottom:8px;font-size:.8rem">Stay updated</p>
 <div class="footer-signup">
 <input type="email" placeholder="Email" id="footerEmail">
 <button onclick="signupEmail(null,'footerEmail')">Join</button>
@@ -906,15 +765,16 @@ a:hover{color:#f0c96e}
 </div>
 </div>
 <div class="footer-bottom" style="max-width:1400px;margin:0 auto;padding:24px 20px 0">
-<div class="ad-slot ad-footer" style="margin-bottom:16px">Ad — 728×90 Footer Banner</div>
+
 <p>© 2026 Card Collection Club. All rights reserved. Not affiliated with The Pokémon Company, Bandai, or Konami.</p>
+<p style="margin-top:8px"><a href="/privacy.html" style="color:#666;margin:0 8px">Privacy Policy</a> | <a href="/terms.html" style="color:#666;margin:0 8px">Terms &amp; Conditions</a> | <a href="/contact.html" style="color:#666;margin:0 8px">Contact Us</a></p>
 <p style="margin-top:12px;font-size:.7rem;color:#444;max-width:800px;margin-left:auto;margin-right:auto;line-height:1.5"><strong>Disclaimer:</strong> Card Collection Club is a directory service only. We do not endorse, guarantee, or take responsibility for any products, services, transactions, or conduct of any shops, vendors, card shows, or third parties listed on this website. All listings are provided for informational purposes only. Card Collection Club is not liable for any loss, fraud, scams, disputes, or damages arising from your interactions with listed businesses or events. Users should exercise their own due diligence before making purchases or attending events. All trademarks, card images, and brand names belong to their respective owners.</p>
 </div>
 </footer>
 
-<script src="cards-data.js"></script>
-<script src="shops-data.js"></script>
-<script src="card-library.js" defer></script>
+<script src="cards-data.js?v=2"></script>
+<script src="shops-data.js?v=4"></script>
+<script src="card-library.js?v=13" defer></script>
 <script>
 // ==================== DATA ====================
 
@@ -936,12 +796,54 @@ var EVENTS = [
 {"name":"⭐ Collector Con — Campbelltown","date":"2026-10-25","city":"Campbelltown","state":"NSW","venue":"Minto Indoor Sports Centre, 9 Redfern Rd, Minto","time":"9:30 AM – 3:00 PM","url":"https://collectorcon.com.au","desc":"250+ tables of toys, trading cards, comics & collectables. First Campbelltown event!","cost":null,"vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards","Collectables"]},
 {"name":"⭐ Collector Con — Penrith","date":"2026-11-22","city":"Penrith","state":"NSW","venue":"Penrith Valley Regional Sports Centre","time":"9:30 AM – 3:00 PM","url":"https://collectorcon.com.au","desc":"400+ tables of toys, trading cards, comics, LEGO, dolls & pop culture collectables.","cost":null,"vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards","Collectables"]},
 // ⭐ MAJOR SHOWS — Cardcon — Dedicated trading card convention
-{"name":"⭐ CARDCON Sydney","date":"2026-06-01","city":"Sydney","state":"NSW","venue":"TBC (Previously Wentworth Park, Glebe)","time":"TBC","url":"https://cardcon.com.au","desc":"⚠️ 2026 dates TBC — Dedicated trading card convention featuring Pokémon, Yu-Gi-Oh!, sports cards, TCGs & vintage. Sydney & Melbourne events expected. Check cardcon.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","Sports Cards","Vintage"]},
-{"name":"⭐ CARDCON Melbourne","date":"2026-07-01","city":"Melbourne","state":"VIC","venue":"TBC","time":"TBC","url":"https://cardcon.com.au","desc":"⚠️ 2026 dates TBC — Dedicated trading card convention featuring Pokémon, Yu-Gi-Oh!, sports cards, TCGs & vintage. Check cardcon.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","Sports Cards","Vintage"]},
-// ⭐ MAJOR SHOWS — CollectFest — Where Collections Collide
-{"name":"⭐ CollectFest Melbourne","date":"2026-07-15","city":"South Wharf","state":"VIC","venue":"MCEC, 1 Convention Centre Pl, South Wharf","time":"TBC","url":"https://collectfest.com.au","desc":"⚠️ 2026 dates TBC (expect Jul-Aug based on 2025). Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. Run by EEA. Check collectfest.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
-{"name":"⭐ CollectFest Brisbane","date":"2026-08-01","city":"South Bank","state":"QLD","venue":"BCEC, Cnr Merivale & Glenelg Sts, South Bank","time":"TBC","url":"https://collectfest.com.au","desc":"⚠️ 2026 dates TBC. Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. Check collectfest.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
-{"name":"⭐ CollectFest Sydney","date":"2026-08-15","city":"Darling Harbour","state":"NSW","venue":"ICC Sydney, 14 Darling Drive, Darling Harbour","time":"TBC","url":"https://collectfest.com.au","desc":"⚠️ 2026 dates TBC. Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. Check collectfest.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
+{"name":"⭐ CARDCON 4 Sydney (COMPLETED)","date":"2026-02-07","city":"Sydney","state":"NSW","venue":"Wentworth Park, Glebe","time":"Completed","url":"https://cardcon.com.au","desc":"✅ COMPLETED — Cardcon 4 was held Feb 7, 2026 at Wentworth Park, Glebe. Dedicated trading card convention featuring Pokémon, Yu-Gi-Oh!, sports cards, TCGs & vintage.","cost":"Completed","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","Sports Cards","Vintage"]},
+{"name":"⭐ CARDCON Melbourne","date":"2026-07-01","city":"Melbourne","state":"VIC","venue":"TBC","time":"TBC","url":"https://cardcon.com.au","desc":"⚠️ 2026 dates TBC — No confirmed Melbourne date yet. Check cardcon.com.au for announcements.","cost":"TBC","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","Sports Cards","Vintage"]},
+// ⭐ MAJOR SHOWS — CollectFest — Where Collections Collide (DATES VERIFIED Mar 29)
+{"name":"⭐ CollectFest Sydney (COMPLETED)","date":"2026-03-14","city":"Darling Harbour","state":"NSW","venue":"ICC Sydney, 14 Darling Drive, Darling Harbour","time":"10:00 AM – 5:00 PM","url":"https://collectfest.com.au","desc":"✅ COMPLETED — Held Mar 14-15, 2026. Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. Run by EEA.","cost":"Completed","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
+{"name":"⭐ CollectFest Melbourne (COMPLETED)","date":"2026-03-28","city":"South Wharf","state":"VIC","venue":"MCEC, 1 Convention Centre Pl, South Wharf","time":"10:00 AM – 5:00 PM","url":"https://collectfest.com.au","desc":"✅ COMPLETED — Held Mar 28-29, 2026. Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. Run by EEA.","cost":"Completed","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
+{"name":"⭐ CollectFest Brisbane","date":"2026-05-09","city":"South Bank","state":"QLD","venue":"BCEC, Cnr Merivale & Glenelg Sts, South Bank","time":"10:00 AM – 5:00 PM","url":"https://collectfest.com.au","desc":"Australia's biggest collectables expo — sneakers, trading cards, coins, comics, memorabilia. May 9-10, 2026 at BCEC. Run by EEA.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables","Sports Cards","Memorabilia"]},
+// ⭐ NEW EVENTS — Added Mar 29
+{"name":"Hobby Con Au (COMPLETED)","date":"2026-02-28","city":"Glebe","state":"NSW","venue":"Wentworth Park, Glebe, NSW","time":"9:00 AM – 4:00 PM","url":"#","desc":"✅ COMPLETED — Hobby Con Au was held Feb 28, 2026 at Wentworth Park, Glebe. Trading cards, collectables, and hobby marketplace.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Collectables"]},
+{"name":"CardVerse Adelaide (COMPLETED)","date":"2026-03-14","city":"Osborne","state":"SA","venue":"Lefevre Community Stadium, Osborne SA","time":"TBC","url":"#","desc":"✅ COMPLETED — CardVerse Adelaide was held Mar 14, 2026. Trading card event in Adelaide. $10 entry.","cost":"$10","vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards"]},
+{"name":"Brisbane Card Show","date":"2026-05-02","city":"Brisbane","state":"QLD","venue":"Distillery Road Market, QLD","time":"TBC","url":"#","desc":"Brisbane Card Show at Distillery Road Market. May 2-3, 2026. Trading cards, sports cards, and collectables.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards"]},
+{"name":"SA Card Show","date":"2026-05-03","city":"Wayville","state":"SA","venue":"Adelaide Showgrounds, Wayville SA","time":"TBC","url":"#","desc":"SA Card Show at Adelaide Showgrounds. Sports cards + TCG event.","cost":"TBC","vendor":true,"focus":["Sports Cards","Trading Cards","Pokémon"]},
+{"name":"⭐ The Trading Card Summit Sydney 2026","date":"2026-05-23","city":"Sydney Olympic Park","state":"NSW","venue":"Sydney Showgrounds, Exhibition Halls, Sydney Olympic Park","time":"TBC","url":"https://www.sydneyshowground.com.au/whats-on/trading-card-summit/","desc":"🔥 Australia's largest trading card-only event. 5,000 sqm dedicated to trading cards. May 23-24, 2026. Pokemon, One Piece, Sports Cards, Yu-Gi-Oh.","cost":"TBC","vendor":true,"focus":["Trading Cards","Pokémon","One Piece","Sports Cards","Yu-Gi-Oh!"]},
+{"name":"Hobby Con Au — July","date":"2026-07-05","city":"Glebe","state":"NSW","venue":"Wentworth Park, Glebe, NSW","time":"9:00 AM – 4:00 PM","url":"#","desc":"Hobby Con Au at Wentworth Park, Glebe. Trading cards, collectables, and hobby marketplace.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Collectables"]},
+{"name":"Sydney Trading Card Show Hurstville","date":"2026-08-15","city":"Hurstville","state":"NSW","venue":"Club Central, Hurstville NSW","time":"TBC","url":"#","desc":"Sydney Trading Card Show at Club Central, Hurstville. Aug 15-16, 2026. Trading cards, sports cards, and collectables.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards"]},
+{"name":"Adelaide Trading Card Show","date":"2026-08-22","city":"Woodville","state":"SA","venue":"St Clair Recreation Centre, Woodville SA","time":"TBC","url":"#","desc":"Adelaide Trading Card Show at St Clair Recreation Centre, Woodville SA. Trading cards, sports cards, and TCG.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards"]},
+// ⭐ CARDCON MEGA — Added Apr 3
+{"name":"⭐ CardCon MEGA Sydney","date":"2026-08-29","city":"Sydney Olympic Park","state":"NSW","venue":"Howie Complex, Sydney Showground, Sydney Olympic Park","time":"TBC","url":"https://cardcon.com.au/","desc":"Australia's ultimate trading card experience. Aug 29-30, 2026. Pokemon, One Piece, Yu-Gi-Oh, Sports Cards, and more.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Yu-Gi-Oh!","Sports Cards"]},
+// 🥊 BIG BOYZ CARD SHOWS — Added Apr 3
+{"name":"Big Boyz Card Show — St Marys","date":"2026-04-19","city":"St Marys","state":"NSW","venue":"St Marys Leagues Club, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Wollongong","date":"2026-04-26","city":"Wollongong","state":"NSW","venue":"Wests Illawarra, Wollongong","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Hudsons Hotel","date":"2026-05-17","city":"Sydney","state":"NSW","venue":"Hudsons Hotel, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Hudsons Hotel","date":"2026-06-21","city":"Sydney","state":"NSW","venue":"Hudsons Hotel, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Hudsons Hotel","date":"2026-07-19","city":"Sydney","state":"NSW","venue":"Hudsons Hotel, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Hudsons Hotel","date":"2026-08-23","city":"Sydney","state":"NSW","venue":"Hudsons Hotel, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Hudsons Hotel","date":"2026-09-20","city":"Sydney","state":"NSW","venue":"Hudsons Hotel, NSW","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — St Marys (2-Day)","date":"2026-10-17","city":"St Marys","state":"NSW","venue":"St Marys Rugby League Club, Sydney","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show — 2-day event Oct 17-18. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Bella Vista","date":"2026-11-15","city":"Bella Vista","state":"NSW","venue":"Bella Vista Hotel, Bella Vista","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+{"name":"Big Boyz Card Show — Wollongong","date":"2026-11-29","city":"Wollongong","state":"NSW","venue":"Wests Illawarra, Wollongong","time":"TBC","url":"https://www.bigboyzgroup.com/card-shows","desc":"Big Boyz Card Show. Pokemon, Yu-Gi-Oh, One Piece, Sports Cards. Entry ~$5, kids under 12 free.","cost":"~$5","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","One Piece","Sports Cards"]},
+// 🎮 HOBBY CON — November (Added Apr 3)
+{"name":"Hobby Con Au — November","date":"2026-11-14","city":"Liverpool","state":"NSW","venue":"Liverpool Whitlam Centre, NSW","time":"9:00 AM – 4:00 PM","url":"#","desc":"Hobby Con Au at Liverpool Whitlam Centre. Trading cards, collectables, and hobby marketplace.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Collectables"]},
+// 🎪 SHIRE / HOBBY HANGOUT — Added May 5
+{"name":"Shire Comic Con","date":"2026-03-07","city":"Sutherland Shire","state":"NSW","venue":"Stapleton Avenue Community Centre, NSW","time":"9:00 AM – 2:00 PM","url":"https://tradingcardshowaus.com.au/","desc":"Sutherland Shire trading card and pop culture event run by Trading Card Show Australia. Pokemon, Yu-Gi-Oh, sports cards.","cost":"TBC","vendor":true,"focus":["Pokémon","Trading Cards","Sports Cards","Collectables"]},
+{"name":"⭐ The Hobby Hangout XL Melbourne","date":"2026-04-26","city":"Carlton","state":"VIC","venue":"Royal Exhibition Building, 9 Nicholson St, Carlton VIC","time":"10:30 AM – 5:30 PM","url":"https://www.thehobbyhangout.com.au/","desc":"400+ tables of trading cards from international and national vendors. Sports cards (NBA, NFL, MLB, AFL, NRL, soccer), Pokemon, Yu-Gi-Oh, One Piece, MTG. Live breaks, trading zones, free play, expert panels.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Yu-Gi-Oh!","MTG","Sports Cards"]},
+{"name":"⭐ The Hobby Hangout Sydney","date":"2026-11-01","city":"Sydney","state":"NSW","venue":"TBC","time":"TBC","url":"https://www.thehobbyhangout.com.au/","desc":"Inaugural Hobby Hangout Sydney event. International and national vendors, sports cards, Pokemon, Yu-Gi-Oh, One Piece, MTG. More details to be announced.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Yu-Gi-Oh!","MTG","Sports Cards"]},
+// 🃏 THE CARD LOUNGE — Sydney recurring (Added May 5)
+{"name":"The Card Lounge — Burwood","date":"2026-05-16","city":"Burwood","state":"NSW","venue":"Club Burwood RSL","time":"9:00 AM – 3:00 PM","url":"https://www.thecardlounge.com.au/","desc":"Inner West Sydney trading card show. Multiple vendors covering Pokemon, One Piece, sports card singles, sealed product and supplies. Kids under 12 free.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","Trading Cards"]},
+{"name":"The Card Lounge — Dee Why","date":"2026-06-13","city":"Dee Why","state":"NSW","venue":"Dee Why RSL","time":"TBC","url":"https://www.thecardlounge.com.au/","desc":"Northern Beaches Sydney trading card show. Pokemon, One Piece, sports cards.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","Trading Cards"]},
+{"name":"⭐ The Card Lounge — Gymea (The Shire)","date":"2026-07-11","city":"Gymea","state":"NSW","venue":"Tradies Gymea","time":"TBC","url":"https://www.thecardlounge.com.au/","desc":"Sutherland Shire's only dedicated card show. Pokemon, One Piece, sports cards. Kids under 12 free.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","Trading Cards"]},
+{"name":"The Card Lounge — Revesby","date":"2026-08-01","city":"Revesby","state":"NSW","venue":"Revesby Workers Club","time":"TBC","url":"https://www.thecardlounge.com.au/","desc":"South-West Sydney trading card show. Pokemon, One Piece, sports cards. Kids under 12 free.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","Trading Cards"]},
+{"name":"The Card Lounge — Burwood (September)","date":"2026-09-05","city":"Burwood","state":"NSW","venue":"Club Burwood RSL","time":"9:00 AM – 3:00 PM","url":"https://www.thecardlounge.com.au/","desc":"Inner West Sydney trading card show. Pokemon, One Piece, sports cards.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","Trading Cards"]},
+// 🎯 NEW REGIONAL + ADDITIONAL EVENTS (Added May 5)
+{"name":"Geek Expo Albury Wodonga","date":"2026-05-30","city":"Wodonga","state":"VIC","venue":"The Cube Wodonga","time":"9:00 AM – 4:00 PM","url":"https://www.geekeventsaustralia.com/","desc":"Pop culture celebration with artists, makers and traders offering comics, collectibles, cards and fan-made creations.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables"]},
+{"name":"Geek Expo Canberra","date":"2026-07-18","city":"Canberra","state":"ACT","venue":"Exhibition Park in Canberra (EPIC)","time":"TBC","url":"https://exhibitionparkincanberra.com.au/event/geek-expo-canberra-july-2026/","desc":"Two-day pop culture and collectables expo (Sat 18 – Sun 19 July) featuring artists, traders, comics, cards and collectibles.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables"]},
+{"name":"Reignited Collectables Market — Risdon Vale","date":"2026-07-19","city":"Risdon Vale","state":"TAS","venue":"Risdon Vale Community Hall, 28 Sugarloaf Road","time":"10:00 AM – 4:00 PM","url":"https://www.reignitedcollectables.com.au","desc":"Grand opening market for Southern Tasmania's collectables, gaming and pop culture hub — trading cards, memorabilia, gaming. FREE entry.","cost":"Free","vendor":true,"focus":["Trading Cards","Collectables","Pokémon"]},
+{"name":"Shell Con Mania","date":"2026-08-22","city":"Shellharbour","state":"NSW","venue":"Shellharbour City Stadium","time":"10:00 AM – 5:00 PM","url":"https://www.friendlyneighbourhoodspidey.com/events/shell-con-mania","desc":"Illawarra pop culture convention with comics, cards, cosplay and collectables vendors. Supports KIDSWISH.","cost":"TBC","vendor":true,"focus":["Trading Cards","Collectables"]},
+{"name":"Adelaide Pokemon Card Show (APCS) 4.0","date":"2026-09-05","city":"Parafield Gardens","state":"SA","venue":"Parafield Gardens Recreation Centre","time":"12:00 PM – 4:00 PM","url":"https://www.trybooking.com/events/landing/1537214","desc":"Adelaide's Pokemon TCG-exclusive show with VIP early admission ($13) and general entry ($10). Vendors, trading and community.","cost":"$10–$13","vendor":true,"focus":["Pokémon"]},
+{"name":"Outwest Card Show — Dubbo","date":"2026-10-03","city":"Dubbo","state":"NSW","venue":"Dubbo RSL Club, 178 Brisbane Street","time":"9:00 AM – 4:00 PM","url":"https://www.123tix.com.au/events/51349/outwest-card-show","desc":"Regional NSW card show featuring Pokemon, Yu-Gi-Oh!, MTG, sports cards plus grading guidance and vendors.","cost":"TBC","vendor":true,"focus":["Pokémon","Yu-Gi-Oh!","MTG","Sports Cards","Trading Cards"]},
+{"name":"APCS Brisbane — Nissan Arena","date":"2026-11-01","city":"Nathan","state":"QLD","venue":"Nissan Arena, 590 Mains Road","time":"9:00 AM – 3:00 PM","url":"https://nissanarena.com.au/apcs-toys-hobby-fair/","desc":"Brisbane toy and hobby fair with sports trading cards, sports collectables, model trains, vintage toys. FREE entry, no bookings required.","cost":"Free","vendor":true,"focus":["Sports Cards","Trading Cards","Collectables","Vintage"]},
 // Existing events (non-duplicate, kept from previous data)
 {"name":"Pokémon League Cup — Gameology Brunswick","date":"2026-02-22","city":"Brunswick","state":"VIC","venue":"Gameology Brunswick","time":"10:00 AM","url":"https://www.eventbrite.com.au/e/pokemon-league-cup-event-gameology-brunswick-220226-tickets-1979288398882","desc":"Pokémon TCG League Cup competitive event at Gameology Brunswick.","cost":null,"vendor":false,"focus":["Pokémon"]},
 {"name":"Mr Brix Learn to Play Pokémon — Open Day","date":"2026-02-28","city":"Tamborine Mountain","state":"QLD","venue":"Mr Brix","time":"1:00 PM","url":"https://www.eventbrite.com.au/e/mr-brix-learn-to-play-pokemon-open-day-tickets-1982562959180","desc":"Learn to play Pokémon TCG open day. Great for beginners.","cost":null,"vendor":false,"focus":["Pokémon"]},
@@ -961,41 +863,64 @@ var EVENTS = [
 {"name":"Supanova Melbourne","date":"2026-04-18","city":"Melbourne","state":"VIC","venue":"Melbourne Showgrounds","time":null,"url":"https://www.supanova.com.au/events/melbourne-2026/event-home/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
 {"name":"Collect-it Con 2026","date":"2026-05-16","city":"Box Hill","state":"VIC","venue":"Box Hill Town Hall","time":"10:00 AM","url":"https://www.eventbrite.com.au/e/collect-it-con-2026-tickets-1980800762402","desc":"Community-driven celebration of trading & sports cards, comics, memorabilia, toys and collectables.","cost":null,"vendor":true,"focus":["Trading Cards","Sports Cards","Comics"]},
 {"name":"Trade and Battle Card Event","date":"2026-06-07","city":"Busselton","state":"WA","venue":"Origins Market Busselton","time":"11:00 AM – 2:00 PM","url":"#","desc":"All-ages unofficial Pokémon card trading & battling day. Free to attend.","cost":"Free","vendor":false,"focus":["Pokémon"]},
-{"name":"Supanova Sydney","date":"2026-06-19","city":"Sydney","state":"NSW","venue":"Sydney Showground, Olympic Park","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
+{"name":"Supanova Sydney","date":"2026-06-19","city":"Sydney","state":"NSW","venue":"Sydney Showgrounds, Sydney Olympic Park","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo Jun 19-21 with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
 {"name":"Supanova Perth","date":"2026-06-27","city":"Perth","state":"WA","venue":"Perth Convention & Exhibition Centre","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
 {"name":"Melbourne Comic & Toy Fair — Caribbean Gardens","date":"2026-07-18","city":"Scoresby","state":"VIC","venue":"Caribbean Gardens","time":"9:00 AM – 5:00 PM","url":"https://www.eventbrite.com.au/e/melbourne-comic-toy-fair-caribbean-gardens-tickets-1653931015189","desc":"Hundreds of stalls — TCG, figures, toys, comics. Dedicated card trading areas. Family-friendly.","cost":null,"vendor":true,"focus":["Pokémon","MTG","Sports Cards"]},
 {"name":"Card Fest — Australia's Premier TCG Marketplace","date":"2026-08-30","city":"Reservoir","state":"VIC","venue":"Darebin Community Sports Stadium, 857 Plenty Rd, Reservoir","time":"Early entry 9:00 AM, General 10:00 AM – 4:00 PM","url":"https://www.eventbrite.com.au/e/card-fest-australias-premier-tcg-marketplace-tickets-1975374915548","desc":"Up to 200 specialist vendors selling singles, slabs, sealed products & accessories. Kids under 12 free. Run by Melbourne Comic & Toy Fair operators.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","MTG","General TCG"]},
 {"name":"Pokémon Trivia — Burpengary Community Club","date":"2026-09-14","city":"Burpengary","state":"QLD","venue":"Burpengary Community Club","time":"6:00 PM","url":"#","desc":"Pokémon-themed trivia night.","cost":null,"vendor":false,"focus":["Pokémon"]},
 {"name":"⭐ Oz National Trading Card Show 2026","date":"2026-09-19","city":"Docklands","state":"VIC","venue":"Marvel Stadium, 740 Bourke St, Docklands","time":"10:00 AM","url":"https://www.eventbrite.com.au/e/oz-national-trading-card-show-2026-tickets-1857149487109","desc":"Australia's BIGGEST trading card show — doubles in size for 2026! 400+ tables across two dedicated floors (TCG floor + Sports Card floor). 10+ sessions across multi-day event. A must-attend for serious collectors.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Sports Cards","General TCG"]},
 {"name":"Supanova Adelaide","date":"2026-10-30","city":"Adelaide","state":"SA","venue":"Adelaide Showground","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
-{"name":"Supanova Brisbane","date":"2026-11-06","city":"Brisbane","state":"QLD","venue":"Brisbane Convention & Exhibition Centre","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]}
+{"name":"Supanova Brisbane","date":"2026-11-06","city":"Brisbane","state":"QLD","venue":"Brisbane Convention & Exhibition Centre","time":null,"url":"https://www.supanova.com.au/events/","desc":"Pop culture expo with exhibitor halls featuring TCG vendors.","cost":"~$30-60","vendor":true,"focus":["General Pop Culture","TCG Vendors"]},
+// 🌏 INTERNATIONAL EVENTS
+{"name":"🌏 Collect-A-Con Houston","date":"2026-03-28","city":"Houston, TX","state":"International","venue":"NRG Center, Houston","time":"10:00 AM","url":"https://collectacon.com","desc":"America's premier trading card convention with PSA grading on-site, 500+ vendor tables. Pokemon, sports cards, vintage.","cost":"~$30 USD","vendor":true,"focus":["Pokémon","Sports Cards","Vintage"]},
+{"name":"🌏 Pokémon European International Championships","date":"2026-04-10","city":"London, UK","state":"International","venue":"ExCeL London","time":null,"url":"https://www.pokemon.com/us/play-pokemon/pokemon-events/pokemon-tournaments/international-championships/","desc":"Europe's biggest official Pokémon TCG tournament. Top players compete for Championship Points and World Championship invites.","cost":"TBC","vendor":false,"focus":["Pokémon"]},
+{"name":"🌏 Card Party Chicago","date":"2026-05-02","city":"Rosemont, IL","state":"International","venue":"Donald E. Stephens Convention Center","time":"10:00 AM","url":"https://cardpartychicago.com","desc":"Massive card show featuring Pokemon, sports cards, and collectibles. Over 500 vendor tables. PSA & CGC on-site grading.","cost":"~$25 USD","vendor":true,"focus":["Pokémon","Sports Cards","One Piece"]},
+{"name":"🌏 MCM London Comic Con","date":"2026-05-22","city":"London, UK","state":"International","venue":"ExCeL London","time":null,"url":"https://www.mcmcomiccon.com","desc":"UK's biggest pop culture convention with trading card vendors, tournaments, Japanese imports, and exclusive promos.","cost":"~£20-40","vendor":true,"focus":["Pokémon","One Piece","General TCG"]},
+{"name":"🌏 Pokémon Japan Championships","date":"2026-06-06","city":"Yokohama, Japan","state":"International","venue":"Pacifico Yokohama","time":null,"url":"https://www.pokemon.co.jp","desc":"Japan's official Pokémon TCG Championship — the most competitive Pokemon card tournament in Asia. Incredible exclusive promos for attendees.","cost":"TBC","vendor":false,"focus":["Pokémon"]},
+{"name":"🌏 Japan Expo Paris","date":"2026-07-02","city":"Paris, France","state":"International","venue":"Paris Nord Villepinte","time":"10:00 AM","url":"https://www.japan-expo-paris.com","desc":"Europe's biggest Japanese culture expo with massive card trading area, Japanese card imports, One Piece exclusives.","cost":"~€15-25","vendor":true,"focus":["Pokémon","One Piece","Yu-Gi-Oh!"]},
+{"name":"🌏 San Diego Comic-Con","date":"2026-07-23","city":"San Diego, CA","state":"International","venue":"San Diego Convention Center","time":null,"url":"https://www.comic-con.org","desc":"Iconic convention featuring exclusive Pokémon card promos, One Piece reveals, and massive vendor hall with TCG dealers.","cost":"~$50-80 USD","vendor":true,"focus":["Pokémon","One Piece","Exclusive Promos"]},
+{"name":"🌏 Gen Con Indianapolis","date":"2026-07-30","city":"Indianapolis, IN","state":"International","venue":"Indiana Convention Center","time":"10:00 AM","url":"https://www.gencon.com","desc":"North America's largest tabletop gaming convention. Massive TCG trading hall, tournaments for every game, exclusive releases.","cost":"~$80 USD","vendor":true,"focus":["Pokémon","MTG","Yu-Gi-Oh!","General TCG"]},
+{"name":"🌏 Pokémon World Championships","date":"2026-08-14","city":"Anaheim, CA","state":"International","venue":"Anaheim Convention Center","time":null,"url":"https://www.pokemon.com/us/play-pokemon/worlds/","desc":"THE biggest Pokémon TCG event in the world. Top players from every country compete for the World Championship title. Incredible exclusive merch and cards.","cost":"TBC","vendor":true,"focus":["Pokémon"]},
+{"name":"🌏 Fan Expo Canada","date":"2026-08-27","city":"Toronto, Canada","state":"International","venue":"Metro Toronto Convention Centre","time":"10:00 AM","url":"https://fanexpohq.com/fanexpocanada/","desc":"Canada's largest fan convention with TCG vendors, PSA grading services, and exclusive card releases.","cost":"~$40-60 CAD","vendor":true,"focus":["Pokémon","Sports Cards","General TCG"]},
+{"name":"🌏 Singapore Toy Game & Comic Convention","date":"2026-09-12","city":"Singapore","state":"International","venue":"Suntec Singapore Convention Centre","time":"10:00 AM","url":"https://www.stgcc.sg","desc":"Southeast Asia's premier collectibles convention. Japanese card imports, One Piece TCG events, Pokémon tournaments.","cost":"~$15-25 SGD","vendor":true,"focus":["Pokémon","One Piece","Japanese Imports"]},
+{"name":"🌏 Spiel Essen","date":"2026-10-22","city":"Essen, Germany","state":"International","venue":"Messe Essen","time":"10:00 AM","url":"https://www.spiel-messe.com","desc":"The world's largest board game fair with a massive TCG section. European card releases, exclusive products, and international vendors.","cost":"~€20","vendor":true,"focus":["Pokémon","MTG","General TCG"]},
+{"name":"🌏 Armageddon Expo Auckland","date":"2026-10-24","city":"Auckland, NZ","state":"International","venue":"ASB Showgrounds","time":"10:00 AM","url":"https://www.armageddonexpo.com","desc":"New Zealand's biggest pop culture and gaming expo with card vendors, tournaments, and grading services.","cost":"~$25-40 NZD","vendor":true,"focus":["Pokémon","One Piece","General TCG"]},
+{"name":"🌏 C3AFA Tokyo","date":"2026-11-21","city":"Chiba, Japan","state":"International","venue":"Makuhari Messe","time":"10:00 AM","url":"https://c3afatokyo.com","desc":"Anime, manga, and card game festival with exclusive Japanese card releases, One Piece premieres, and TCG tournaments.","cost":"TBC","vendor":true,"focus":["Pokémon","One Piece","Japanese Exclusive"]},
+{"name":"🌏 PAX Unplugged","date":"2026-12-04","city":"Philadelphia, PA","state":"International","venue":"Philadelphia Convention Center","time":"10:00 AM","url":"https://unplugged.paxsite.com","desc":"The tabletop-focused PAX event featuring TCG tournaments, vendors, exclusive playmats, and sealed product releases.","cost":"~$50-70 USD","vendor":true,"focus":["Pokémon","MTG","General TCG"]}
 ];
 
 var POKEMON_RELEASES = [
-{name:"Prismatic Evolutions",date:"2026-01-17",type:"Special Set",lang:"EN",price:"$89.99 (ETB) / $259.99 (Binder Collection)"},
-{name:"Paldean Fates Reprint",date:"2026-01-24",type:"Reprint",lang:"EN",price:"$79.99 (ETB)"},
-{name:"SV09 — Journey Together",date:"2026-03-28",type:"Booster Box / ETB",lang:"EN",price:"$179.99 (BB) / $79.99 (ETB)"},
-{name:"Terastal Festival ex (JP)",date:"2026-01-24",type:"Booster Box",lang:"JP",price:"$89.99 (BB)"},
-{name:"Perfect Order (JP)",date:"2026-03-14",type:"Booster Box",lang:"JP",price:"$89.99 (BB)"},
-{name:"SV — Prismatic Evolutions Mini Tins Wave 2",date:"2026-02-14",type:"Mini Tin Collection",lang:"EN",price:"$19.99"},
-{name:"SV10 — Scarlet & Violet 10",date:"2026-06-13",type:"Booster Box / ETB",lang:"EN",price:"$179.99 (BB) / $79.99 (ETB)"},
-{name:"Pokemon TCG Pocket — Mythical Island",date:"2026-01-29",type:"Digital Expansion",lang:"EN/JP",price:"Free (in-app)"},
-{name:"SV11 — Scarlet & Violet 11",date:"2026-09-05",type:"Booster Box / ETB",lang:"EN",price:"TBC"},
-{name:"25th Anniversary Celebrations Reprint (Rumoured)",date:"2026-10-01",type:"Special Set",lang:"EN",price:"TBC"},
-{name:"SV — Shrouded Fable Reprint",date:"2026-02-07",type:"Reprint",lang:"EN",price:"$79.99 (ETB)"}
+{name:"Mega Evolution — Ascended Heroes",date:"2026-01-30",type:"Booster Box / ETB",lang:"EN",price:"~A$330 (BB) / ~A$90 (ETB)",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/pokemon_tcg_mega_evolution-ascended_heroes_booster_wrap-high-high-davzpa.webp"},
+{name:"Pokémon Day 2026 Collection",date:"2026-01-30",type:"Special Collection",lang:"EN",price:"TBC",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/1299951474-high.jpg"},
+{name:"Mega Evolution — Ascended Heroes ETB",date:"2026-02-20",type:"Elite Trainer Box",lang:"EN",price:"~A$90 (ETB)",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/pokemon_tcg_mega_evolution-ascended_heroes_elite_trainer_box-high.jpg"},
+{name:"First Partner Illustration Collection (Series 1)",date:"2026-03-20",type:"Promo Collection",lang:"EN",price:"TBC",img:""},
+{name:"Mega Evolution — Perfect Order",date:"2026-03-27",type:"Booster Box / ETB",lang:"EN",price:"~A$330 (BB) / ~A$90 (ETB)",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/q-high.jpg"},
+{name:"Mega Evolution — Perfect Order Build & Battle Box",date:"2026-04-10",type:"Build & Battle Box",lang:"EN",price:"~A$40",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/1-5-high-c4d3lu.jpg"},
+{name:"2025 World Championships Deck",date:"2026-04-03",type:"Collection",lang:"EN",price:"TBC",img:""},
+{name:"Mega Meganium / Emboar / Feraligatr EX Boxes",date:"2026-04-23",type:"Collection Box",lang:"EN",price:"TBC",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/2-high-h0igxy.jpg"},
+{name:"Ascended Heroes Booster Bundles",date:"2026-04-23",type:"Booster Bundle",lang:"EN",price:"TBC",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/pokemon-tcg-mega-evolution-ascended-heroes-facebook_en-high.jpg"},
+{name:"Mega Evolution — Chaos Rising",date:"2026-05-22",type:"Booster Box / ETB / Build & Battle",lang:"EN",price:"~A$306 (BB)",img:"https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/pokemon_tcg_mega_evolution-_chaos_rising_elite_trainer_box-standard.jpg"},
+{name:"Abyss Eye (JP)",date:"2026-05-22",type:"Booster Box",lang:"JP",price:"TBC",img:""},
+{name:"Storm Emerald (JP)",date:"2026-07-31",type:"Booster Box",lang:"JP",price:"TBC",img:""},
+{name:"Future Set 4 (Unnamed)",date:"2026-09-01",type:"Booster Box",lang:"EN",price:"TBC",img:""},
+{name:"30th Anniversary Celebration Set",date:"2026-10-01",type:"Special Set (Rumoured)",lang:"EN",price:"TBC",img:""},
+{name:"Future Set 5 (Unnamed)",date:"2026-11-01",type:"Booster Box",lang:"EN",price:"TBC",img:""}
 ];
 
 var ONEPIECE_RELEASES = [
-{name:"OP-10: Royal Blood",date:"2026-02-28",type:"Booster Box",lang:"EN",price:"$149.99 (BB)"},
-{name:"OP-11 (TBC)",date:"2026-06-27",type:"Booster Box",lang:"EN",price:"TBC"},
-{name:"OP-10: Royal Blood (JP)",date:"2025-11-29",type:"Booster Box",lang:"JP",price:"$99.99 (BB)"},
-{name:"OP-11 (JP)",date:"2026-02-28",type:"Booster Box",lang:"JP",price:"$99.99 (BB)"},
-{name:"Premium Card Collection — Uta",date:"2026-03-14",type:"Premium Collection",lang:"EN",price:"$49.99"},
-{name:"ST-21 Starter Deck (TBC)",date:"2026-04-25",type:"Starter Deck",lang:"EN",price:"$24.99"},
-{name:"OP-12 (JP)",date:"2026-05-30",type:"Booster Box",lang:"JP",price:"TBC"},
-{name:"Premium Booster — PRB-02",date:"2026-06-06",type:"Premium Booster",lang:"EN",price:"TBC"},
-{name:"OP-12 (EN)",date:"2026-10-30",type:"Booster Box",lang:"EN",price:"TBC"},
-{name:"3D2Y Premium Collection",date:"2026-01-17",type:"Premium Collection",lang:"EN",price:"$69.99"}
+{name:"Starter Deck Egghead ST-29",date:"2026-01-16",type:"Starter Deck",lang:"EN",price:"TBC",img:""},
+{name:"OP-14: The Azure Sea's Seven",date:"2026-01-16",type:"Booster Box",lang:"EN",price:"TBC",img:"https://en.onepiece-cardgame.com/renewal/images/products/boosters/op14/img_item01.webp"},
+{name:"EB-03: ONE PIECE Heroines Edition",date:"2026-02-20",type:"Extra Booster",lang:"EN",price:"TBC",img:"https://en.onepiece-cardgame.com/renewal/images/products/boosters/eb03/img_item01.webp"},
+{name:"OP-15 (JP)",date:"2026-02-28",type:"Booster Box",lang:"JP",price:"TBC",img:""},
+{name:"3rd Anniversary Premium Supply Set (JP)",date:"2026-03-27",type:"Premium Set",lang:"JP",price:"TBC",img:""},
+{name:"Double Pack Set DP-10",date:"2026-04-03",type:"Double Pack",lang:"EN",price:"TBC",img:""},
+{name:"OP15-EB04: Adventure on Kami's Island",date:"2026-04-03",type:"Booster Box",lang:"EN",price:"TBC",img:"https://en.onepiece-cardgame.com/renewal/images/products/boosters/op15-eb04/img_item01.webp"},
+{name:"Luffy & Ace ST-30 (JP)",date:"2026-04-11",type:"Starter Deck",lang:"JP",price:"TBC",img:""},
+{name:"OP-16 (JP)",date:"2026-05-30",type:"Booster Box",lang:"JP",price:"TBC",img:""},
+{name:"Luffy & Ace ST-30 (Global)",date:"2026-06-12",type:"Starter Deck",lang:"EN",price:"TBC",img:""},
+{name:"OP-16: The Time of Battle",date:"2026-06-12",type:"Booster Box",lang:"EN",price:"TBC",img:""},
+{name:"Illustration Box Vol. 7 (IB-07)",date:"2026-07-31",type:"Premium Collection",lang:"EN",price:"TBC",img:""},
+{name:"Mini Case Set Vol. 3 (TS-03)",date:"2026-10-30",type:"Accessories",lang:"EN",price:"TBC",img:""}
 ];
 
 var BLOG_POSTS = [
@@ -1011,10 +936,10 @@ var BLOG_POSTS = [
 {title:"PSA Grading Guide for Australian Collectors",date:"2026-02-17",cat:"Guide",author:"Ian N",img:"https://images.pokemontcg.io/swsh12pt5/GG70_hires.png",url:"blog/psa-grading-guide-australia.html",excerpt:"Complete PSA grading guide for Australians. Costs, turnaround times, submission tips, and where to submit locally."},
 {title:"Top 10 Sealed Products to Hold in 2026",date:"2026-02-18",cat:"Guide",author:"Ian N",img:"https://images.pokemontcg.io/sv3pt5/198_hires.png",url:"blog/post-11-top-10-sealed-products-2026.html",excerpt:"Our picks for the best sealed Pokémon and One Piece TCG products to hold long-term in 2026."},
 {title:"PSA vs CGC vs BGS — Which Grading Company is Best?",date:"2026-02-18",cat:"Guide",author:"Michael H",img:"https://images.pokemontcg.io/basep/1_hires.png",url:"blog/post-12-psa-vs-cgc-vs-bgs-grading.html",excerpt:"A detailed comparison of PSA, CGC, and BGS grading services for Australian card collectors."},
-{title:"One Piece TCG OP-09 Set Review",date:"2026-02-18",cat:"Market Report",author:"Ian N",img:"https://cardcollectionclub.com/images/op09-banner.jpg",url:"blog/post-13-one-piece-op09-set-review.html",excerpt:"Full review of One Piece TCG OP-09 set. Chase cards, pull rates, competitive staples, and investment potential."},
+{title:"One Piece TCG OP-09 Set Review",date:"2026-02-18",cat:"Market Report",author:"Ian N",img:"https://images.pokemontcg.io/sv4pt5/191_hires.png",url:"blog/post-13-one-piece-op09-set-review.html",excerpt:"Full review of One Piece TCG OP-09 set. Chase cards, pull rates, competitive staples, and investment potential."},
 {title:"Best Pokémon Cards Under $50 AUD",date:"2026-02-18",cat:"Guide",author:"John C",img:"https://images.pokemontcg.io/sv3pt5/172_hires.png",url:"blog/post-14-best-pokemon-cards-under-50-aud.html",excerpt:"The best Pokémon cards you can buy for under $50 AUD in 2026. Stunning artwork and investment potential."},
 {title:"How to Spot Resealed Booster Boxes",date:"2026-02-18",cat:"Guide",author:"John C",img:"https://images.pokemontcg.io/sv3pt5/198_hires.png",url:"blog/post-15-how-to-spot-resealed-booster-boxes.html",excerpt:"Protect yourself from resealed Pokémon and One Piece TCG booster boxes. Learn the telltale signs of tampering."},
-{title:"Japanese vs English One Piece TCG — Price Gap Analysis",date:"2026-02-18",cat:"Market Report",author:"Michael H",img:"https://cardcollectionclub.com/images/op-jp-en-compare.jpg",url:"blog/post-16-japanese-vs-english-one-piece-price-gap.html",excerpt:"Analysing the price differences between Japanese and English One Piece TCG cards for Aussie collectors."},
+{title:"Japanese vs English One Piece TCG — Price Gap Analysis",date:"2026-02-18",cat:"Market Report",author:"Michael H",img:"https://images.pokemontcg.io/sv4pt5/193_hires.png",url:"blog/post-16-japanese-vs-english-one-piece-price-gap.html",excerpt:"Analysing the price differences between Japanese and English One Piece TCG cards for Aussie collectors."},
 {title:"Convention Selling Tips — Maximise Your Table Profit",date:"2026-02-18",cat:"Guide",author:"Ian N",img:"https://images.pokemontcg.io/sv2/269_hires.png",url:"blog/post-17-convention-selling-tips.html",excerpt:"Expert tips for selling TCG cards at Australian conventions and expos. Pricing, display, and maximising profit."},
 {title:"Pokémon 151 One Year Later — Price Trends",date:"2026-02-18",cat:"Market Report",author:"Michael H",img:"https://images.pokemontcg.io/sv3pt5/198_hires.png",url:"blog/post-18-pokemon-151-one-year-later.html",excerpt:"How have Pokémon 151 card prices changed one year after release? Winners, losers, and sealed product trends."},
 {title:"Building a $10K Card Portfolio from Scratch",date:"2026-02-18",cat:"Guide",author:"Ian N",img:"https://images.pokemontcg.io/swsh7/203_hires.png",url:"blog/post-19-building-10k-card-portfolio.html",excerpt:"How to build a $10,000 AUD TCG card portfolio from scratch. Allocation strategy and specific picks."},
@@ -1034,14 +959,170 @@ function switchTab(tab) {
   if (tab === 'shows') filterShows();
   if (tab === 'releases') renderReleases('pokemon');
   if (tab === 'blog') renderBlog();
-  if (tab === 'search') { updateSetDropdown(); browseLibrary(); }
+  if (tab === 'search') { switchGame(currentGame); }
   if (tab === 'pro') renderMiniCharts();
-  if (tab === 'pokedex') renderDex();
 }
 
 // ==================== DIRECTORY ====================
 var currentPage = 1;
 var PER_PAGE = 20;
+
+// ==================== PROXIMITY SEARCH ====================
+var userLat = null, userLng = null;
+
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function showLocStatus(msg, isError) {
+  const el = document.getElementById('locStatus');
+  el.textContent = msg;
+  el.style.display = msg ? 'block' : 'none';
+  el.style.color = isError ? '#e74c3c' : 'var(--gold)';
+}
+
+let locDebounce = null;
+let locSuggestions = [];
+let locActiveIdx = -1;
+const COUNTRY_FLAGS = {AU:'🇦🇺',NZ:'🇳🇿',US:'🇺🇸',CA:'🇨🇦',GB:'🇬🇧',JP:'🇯🇵',DE:'🇩🇪',FR:'🇫🇷',SG:'🇸🇬',NL:'🇳🇱',PH:'🇵🇭',MY:'🇲🇾',IE:'🇮🇪',IT:'🇮🇹',ES:'🇪🇸',BR:'🇧🇷',IN:'🇮🇳',KR:'🇰🇷',TW:'🇹🇼',HK:'🇭🇰',TH:'🇹🇭',ID:'🇮🇩',MX:'🇲🇽',CL:'🇨🇱',AR:'🇦🇷',ZA:'🇿🇦',SE:'🇸🇪',NO:'🇳🇴',DK:'🇩🇰',FI:'🇫🇮',BE:'🇧🇪',AT:'🇦🇹',CH:'🇨🇭',PT:'🇵🇹',PL:'🇵🇱',CZ:'🇨🇿'};
+
+function onLocInput() {
+  const q = document.getElementById('locSearch').value.trim();
+  if (q.length < 2) { closeSuggestions(); return; }
+  clearTimeout(locDebounce);
+  locDebounce = setTimeout(() => fetchSuggestions(q), 300);
+}
+
+function fetchSuggestions(q) {
+  fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=6&lang=en`)
+    .then(r => r.json())
+    .then(data => {
+      if (!data.features || !data.features.length) { closeSuggestions(); return; }
+      locSuggestions = data.features.map(f => {
+        const p = f.properties;
+        const cc = (p.countrycode || '').toUpperCase();
+        const flag = COUNTRY_FLAGS[cc] || '🌐';
+        const name = p.name || '';
+        const postcode = p.postcode || '';
+        const state = p.state || '';
+        const country = p.country || '';
+        const city = p.city || p.county || '';
+        let main = name;
+        if (postcode && !main.includes(postcode)) main += ' ' + postcode;
+        let sub = [city !== name ? city : '', state, country].filter(Boolean).join(', ');
+        return { main, sub, flag, lat: f.geometry.coordinates[1], lng: f.geometry.coordinates[0], display: [name, postcode, city, state, country].filter(Boolean).join(', ') };
+      });
+      // Deduplicate by display string
+      const seen = new Set();
+      locSuggestions = locSuggestions.filter(s => { const k = s.main + s.sub; if (seen.has(k)) return false; seen.add(k); return true; });
+      renderSuggestions();
+    })
+    .catch(() => closeSuggestions());
+}
+
+function renderSuggestions() {
+  const el = document.getElementById('locSuggest');
+  if (!locSuggestions.length) { closeSuggestions(); return; }
+  locActiveIdx = -1;
+  el.innerHTML = locSuggestions.map((s, i) =>
+    `<div class="loc-suggest-item" data-idx="${i}" onmousedown="pickSuggestion(${i})" onmouseenter="locActiveIdx=${i};highlightSuggestion()"><span class="flag">${s.flag}</span><span><span class="main">${s.main}</span><br><span class="sub">${s.sub}</span></span></div>`
+  ).join('');
+  el.classList.add('open');
+}
+
+function highlightSuggestion() {
+  document.querySelectorAll('.loc-suggest-item').forEach((el, i) => el.classList.toggle('active', i === locActiveIdx));
+}
+
+function closeSuggestions() {
+  document.getElementById('locSuggest').classList.remove('open');
+  locSuggestions = [];
+  locActiveIdx = -1;
+}
+
+function pickSuggestion(idx) {
+  const s = locSuggestions[idx];
+  if (!s) return;
+  document.getElementById('locSearch').value = s.main;
+  closeSuggestions();
+  userLat = s.lat;
+  userLng = s.lng;
+  showLocStatus('📍 Showing shops nearest to ' + s.display);
+  document.getElementById('clearLocBtn').style.display = '';
+  document.getElementById('sortBy').value = 'distance';
+  filterShops();
+}
+
+function onLocKeydown(e) {
+  const el = document.getElementById('locSuggest');
+  if (!el.classList.contains('open')) { if (e.key === 'Enter') findNearest(); return; }
+  if (e.key === 'ArrowDown') { e.preventDefault(); locActiveIdx = Math.min(locActiveIdx + 1, locSuggestions.length - 1); highlightSuggestion(); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); locActiveIdx = Math.max(locActiveIdx - 1, 0); highlightSuggestion(); }
+  else if (e.key === 'Enter') { e.preventDefault(); if (locActiveIdx >= 0) pickSuggestion(locActiveIdx); else findNearest(); }
+  else if (e.key === 'Escape') closeSuggestions();
+}
+
+document.addEventListener('click', e => { if (!e.target.closest('.loc-row')) closeSuggestions(); });
+
+function findNearest() {
+  closeSuggestions();
+  const q = document.getElementById('locSearch').value.trim();
+  if (!q) return;
+  showLocStatus('Searching...');
+  fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=1&lang=en`)
+    .then(r => r.json())
+    .then(data => {
+      if (!data.features || !data.features.length) { showLocStatus('Location not found. Try a different suburb or postcode.', true); return; }
+      const f = data.features[0];
+      userLat = f.geometry.coordinates[1];
+      userLng = f.geometry.coordinates[0];
+      const p = f.properties;
+      const name = [p.name, p.postcode, p.state, p.country].filter(Boolean).join(', ');
+      showLocStatus('📍 Showing shops nearest to ' + name);
+      document.getElementById('clearLocBtn').style.display = '';
+      document.getElementById('sortBy').value = 'distance';
+      filterShops();
+    })
+    .catch(() => showLocStatus('Search failed. Please try again.', true));
+}
+
+function useMyLocation() {
+  if (!navigator.geolocation) { showLocStatus('Geolocation not supported by your browser.', true); return; }
+  showLocStatus('Getting your location...');
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLat = pos.coords.latitude;
+    userLng = pos.coords.longitude;
+    showLocStatus('📍 Showing shops nearest to your location');
+    document.getElementById('clearLocBtn').style.display = '';
+    document.getElementById('sortBy').value = 'distance';
+    filterShops();
+  }, () => showLocStatus('Location access denied. Try searching by suburb instead.', true));
+}
+
+function clearLocation() {
+  userLat = null; userLng = null;
+  document.getElementById('locSearch').value = '';
+  document.getElementById('clearLocBtn').style.display = 'none';
+  showLocStatus('');
+  if (document.getElementById('sortBy').value === 'distance') document.getElementById('sortBy').value = 'name';
+  filterShops();
+}
+
+function getDistance(shop) {
+  if (userLat === null || !shop.lat) return null;
+  return haversine(userLat, userLng, shop.lat, shop.lng);
+}
+
+function formatDist(km) {
+  if (km === null) return '';
+  if (km < 1) return Math.round(km * 1000) + ' m away';
+  if (km < 100) return km.toFixed(1) + ' km away';
+  return Math.round(km) + ' km away';
+}
 
 function getDomain(url) {
   if (!url) return '';
@@ -1067,6 +1148,9 @@ function filterShops() {
   const tournaments = document.getElementById('filterTournaments').checked;
   const sort = document.getElementById('sortBy').value;
 
+  const isSearching = !!(q || country || spec || type || tournaments);
+  window._isSearching = isSearching;
+
   let filtered = SHOPS.filter(s => {
     if (q && !s.name.toLowerCase().includes(q) && !s.city.toLowerCase().includes(q)) return false;
     if (country && s.cc !== country) return false;
@@ -1078,7 +1162,24 @@ function filterShops() {
     return true;
   });
 
+  // Compute distances
+  filtered.forEach(s => { s._dist = getDistance(s); });
+
   filtered.sort((a, b) => {
+    // Sponsored shops pinned to top whenever a search/filter is active
+    if (isSearching) {
+      if (a.sponsored && !b.sponsored) return -1;
+      if (!a.sponsored && b.sponsored) return 1;
+    }
+    if (sort === 'distance' && userLat !== null) {
+      // Physical shops first, then by distance
+      const aPhys = a.physical ? 0 : 1;
+      const bPhys = b.physical ? 0 : 1;
+      if (aPhys !== bPhys) return aPhys - bPhys;
+      const aDist = a._dist !== null ? a._dist : 999999;
+      const bDist = b._dist !== null ? b._dist : 999999;
+      return aDist - bDist;
+    }
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     if (sort === 'name') return a.name.localeCompare(b.name);
@@ -1107,10 +1208,13 @@ function renderShops(shops) {
     const flag = FLAGS[s.cc] || '';
     const typeBadge = s.online && s.physical ? 'Both' : s.online ? 'Online' : 'Physical';
 
-    html += `<div class="shop-card${s.featured ? ' featured' : ''}">
+    const sponsoredCls = (s.sponsored && window._isSearching) ? ' sponsored' : '';
+    const featuredCls = (s.featured && !sponsoredCls) ? ' featured' : '';
+    html += `<div class="shop-card${featuredCls}${sponsoredCls}">
       <div class="shop-header">
         ${logoUrl ? `<img class="shop-logo" src="${logoUrl}" alt="${s.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
-        <div><div class="shop-name">${s.name}</div><div class="shop-location">${flag} ${s.city}, ${s.country}</div></div>
+        <div style="flex:1"><div class="shop-name">${s.name}</div><div class="shop-location">${flag} ${s.city}, ${s.country}</div></div>
+        ${s._dist !== null && s.physical ? `<span class="badge-distance">${formatDist(s._dist)}</span>` : ''}
       </div>
       <div class="shop-badges">
         ${s.spec.map(sp => `<span class="badge ${getBadgeClass(sp)}">${sp}</span>`).join('')}
@@ -1126,7 +1230,7 @@ function renderShops(shops) {
 
     // AdSense every 15 cards
     if ((i + 1) % 15 === 0 && i < page.length - 1) {
-      html += '<div class="ad-slot ad-infeed" style="grid-column:1/-1">Ad — In-feed 728×90</div>';
+
     }
   });
 
@@ -1156,41 +1260,88 @@ function filterShows() {
   renderShows(filtered);
 }
 
-function renderShows(events) {
-  const container = document.getElementById('showsList');
-  const months = {};
+function renderEventCard(e, today) {
+  const d = new Date(e.date + 'T00:00:00');
+  const isPast = e.date < today;
+  const isMajor = e.name.startsWith('⭐');
+  const pastStyle = isPast ? 'opacity:0.45;' : '';
+  const majorStyle = isMajor && !isPast ? 'border-color:var(--gold);box-shadow:0 0 15px rgba(212,168,83,.15);' : '';
+  return `<div class="event-card" style="${pastStyle}${majorStyle}">
+    ${isPast ? '<span style="position:absolute;top:10px;right:12px;font-size:.65rem;color:#666;font-weight:600;letter-spacing:1px">COMPLETED</span>' : ''}
+    <h3>${e.name}</h3>
+    <div class="event-meta">
+      <span>📅 ${d.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}</span>
+      ${e.time ? `<span>🕐 ${e.time}</span>` : ''}
+      <span>📍 ${e.city}, ${e.state}</span>
+      ${e.cost ? `<span>💰 ${e.cost}</span>` : ''}
+    </div>
+    <div class="event-desc">${e.desc}</div>
+    <div class="event-tags">
+      ${e.focus.map(f => `<span class="event-tag">${f}</span>`).join('')}
+      ${e.vendor ? '<span class="event-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">Vendor Tables</span>' : ''}
+    </div>
+    <div style="display:flex;gap:8px">
+      ${!isPast && e.url && e.url !== '#' ? `<a href="${e.url}" target="_blank" class="btn" style="font-size:.8rem;padding:6px 14px">🎟️ Details / Tickets</a>` : ''}
+    </div>
+  </div>`;
+}
+
+function groupByMonth(events) {
+  const monthGroups = [];
+  const monthMap = {};
   events.forEach(e => {
     const d = new Date(e.date + 'T00:00:00');
-    const key = d.toLocaleString('en-AU', {month:'long',year:'numeric'});
-    if (!months[key]) months[key] = [];
-    months[key].push(e);
+    const key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+    const label = d.toLocaleString('en-AU', {month:'long',year:'numeric'});
+    if (!monthMap[key]) {
+      monthMap[key] = {label, events: []};
+      monthGroups.push(monthMap[key]);
+    }
+    monthMap[key].events.push(e);
   });
+  return monthGroups;
+}
+
+function toggleArchive() {
+  const a = document.getElementById('archivedEvents');
+  const b = document.getElementById('archiveToggleBtn');
+  if (!a || !b) return;
+  const open = a.style.display !== 'none';
+  a.style.display = open ? 'none' : 'block';
+  b.textContent = open ? b.dataset.show : b.dataset.hide;
+}
+
+function renderShows(events) {
+  const container = document.getElementById('showsList');
+  const today = new Date().toISOString().split('T')[0];
+
+  const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
+  const upcoming = sorted.filter(e => e.date >= today);
+  const past = sorted.filter(e => e.date < today).reverse(); // most-recent first in archive
 
   let html = '';
-  for (const [month, evts] of Object.entries(months)) {
-    html += `<div class="month-header">${month}</div>`;
-    evts.forEach(e => {
-      const d = new Date(e.date + 'T00:00:00');
-      const isMajor = e.name.startsWith('⭐');
-      html += `<div class="event-card" style="${isMajor ? 'border-color:var(--gold);box-shadow:0 0 15px rgba(212,168,83,.15)' : ''}">
-        <h3>${e.name}</h3>
-        <div class="event-meta">
-          <span>📅 ${d.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}</span>
-          ${e.time ? `<span>🕐 ${e.time}</span>` : ''}
-          <span>📍 ${e.city}, ${e.state}</span>
-          ${e.cost ? `<span>💰 ${e.cost}</span>` : ''}
-        </div>
-        <div class="event-desc">${e.desc}</div>
-        <div class="event-tags">
-          ${e.focus.map(f => `<span class="event-tag">${f}</span>`).join('')}
-          ${e.vendor ? '<span class="event-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">Vendor Tables</span>' : ''}
-        </div>
-        ${e.vendor ? '<div class="pro-lock" onclick="switchTab(\'pro\')" style="margin-bottom:8px">🔒 Pro members get vendor contact info</div>' : ''}
-        <div style="display:flex;gap:8px">
-          ${e.url && e.url !== '#' ? `<a href="${e.url}" target="_blank" class="btn" style="font-size:.8rem;padding:6px 14px">🎟️ Details / Tickets</a>` : ''}
-        </div>
-      </div>`;
+
+  if (upcoming.length === 0) {
+    html += `<div class="event-card" style="text-align:center;padding:32px"><h3>No upcoming events for this filter</h3><div class="event-desc">Check back soon, or browse archived events below.</div></div>`;
+  } else {
+    groupByMonth(upcoming).forEach(group => {
+      html += `<div class="month-header">${group.label}</div>`;
+      group.events.forEach(e => { html += renderEventCard(e, today); });
     });
+  }
+
+  if (past.length > 0) {
+    const showLabel = `📁 Show ${past.length} archived event${past.length === 1 ? '' : 's'}`;
+    const hideLabel = `📁 Hide archived events`;
+    html += `<div style="margin:32px 0 16px;text-align:center">
+      <button id="archiveToggleBtn" onclick="toggleArchive()" data-show="${showLabel}" data-hide="${hideLabel}" style="padding:10px 20px;background:transparent;border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-sm);font-family:inherit;font-size:.85rem;cursor:pointer">${showLabel}</button>
+    </div>
+    <div id="archivedEvents" style="display:none">`;
+    groupByMonth(past).forEach(group => {
+      html += `<div class="month-header" style="opacity:.6">${group.label}</div>`;
+      group.events.forEach(e => { html += renderEventCard(e, today); });
+    });
+    html += `</div>`;
   }
 
   // Submit via localStorage
@@ -1251,12 +1402,14 @@ function renderReleases(type) {
     const d = new Date(r.date + 'T00:00:00');
     const isPast = r.date < today;
     const isUpcoming = !isPast;
-    html += `<div class="release-item ${isPast ? 'past' : 'upcoming'}">
+    const imgHtml = r.img ? `<img src="${r.img}" style="height:80px;border-radius:6px;object-fit:contain;margin-right:12px;flex-shrink:0" onerror="this.style.display='none'" loading="lazy">` : '';
+    html += `<div class="release-item ${isPast ? 'past' : 'upcoming'}" style="display:flex;align-items:center">
       <div class="release-date-box">
         <div class="month">${d.toLocaleString('en-AU',{month:'short'})}</div>
         <div class="day">${d.getDate()}</div>
       </div>
-      <div class="release-info">
+      ${imgHtml}
+      <div class="release-info" style="flex:1;min-width:0">
         <h4>${r.name}</h4>
         <div class="release-meta">${r.type} · ${r.lang} · ${d.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}</div>
       </div>
@@ -1281,7 +1434,7 @@ function renderBlog() {
           ${p.author ? '<span style="color:var(--gold);font-size:.8rem">by '+p.author+'</span>' : ''}
         </div>
         <div class="excerpt">${p.excerpt}</div>
-        ${p.cat === 'Market Report' ? '<div class="pro-lock" onclick="event.preventDefault();switchTab(\'pro\')">🔒 Full market data — Pro members</div>' : ''}
+        
       </div>
     </a>`;
   });
@@ -1293,9 +1446,10 @@ function signupEmail(nameId, emailId) {
   const email = document.getElementById(emailId).value;
   if (!email || !email.includes('@')) { alert('Please enter a valid email'); return; }
   const name = nameId ? document.getElementById(nameId).value : '';
-  const subs = JSON.parse(localStorage.getItem('ccc_subscribers') || '[]');
-  subs.push({name, email, date: new Date().toISOString()});
-  localStorage.setItem('ccc_subscribers', JSON.stringify(subs));
+  const body = new URLSearchParams({'form-name':'newsletter-signup','email':email,'name':name,'source':nameId?'hero':'footer'});
+  fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body.toString()})
+    .then(() => {})
+    .catch(() => {});
   alert('🎉 Welcome to Card Collection Club! You\'ll be the first to know about new releases and card shows.');
   if (nameId) document.getElementById(nameId).value = '';
   document.getElementById(emailId).value = '';
@@ -1313,39 +1467,100 @@ function previewLogo(input) {
 
 function submitRegistration(e) {
   e.preventDefault();
-  const data = {
-    name: document.getElementById('regName').value,
-    country: document.getElementById('regCountry').value,
-    state: document.getElementById('regState').value,
-    city: document.getElementById('regCity').value,
-    address: document.getElementById('regAddress').value,
-    website: document.getElementById('regWebsite').value,
-    instagram: document.getElementById('regInstagram').value,
-    maps: document.getElementById('regMaps').value,
-    email: document.getElementById('regEmail').value,
-    phone: document.getElementById('regPhone').value,
-    hours: document.getElementById('regHours').value,
-    desc: document.getElementById('regDesc').value,
-    specs: [...document.querySelectorAll('input[name=spec]:checked')].map(c => c.value),
-    svcs: [...document.querySelectorAll('input[name=svc]:checked')].map(c => c.value),
-    logo: document.getElementById('logoPreview').src || null,
-    date: new Date().toISOString()
-  };
-  const regs = JSON.parse(localStorage.getItem('ccc_registrations') || '[]');
-  regs.push(data);
-  localStorage.setItem('ccc_registrations', JSON.stringify(regs));
-  document.getElementById('registerFormWrap').style.display = 'none';
-  document.getElementById('regSuccess').style.display = 'block';
+  const form = document.getElementById('registerForm');
+  const formData = new FormData(form);
+  formData.append('specialties', [...document.querySelectorAll('input[name=spec]:checked')].map(c => c.value).join(', '));
+  formData.append('services', [...document.querySelectorAll('input[name=svc]:checked')].map(c => c.value).join(', '));
+  fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(formData).toString() })
+    .then(() => { document.getElementById('registerFormWrap').style.display = 'none'; document.getElementById('regSuccess').style.display = 'block'; })
+    .catch(() => { alert('Submission sent! We\'ll be in touch.'); document.getElementById('registerFormWrap').style.display = 'none'; document.getElementById('regSuccess').style.display = 'block'; });
 }
 
 // ==================== CARD SEARCH & LIBRARY ====================
 // CARD_DB loaded from cards-data.js (price data)
-// CARD_LIBRARY + CARD_SETS loaded from card-library.js (full card library)
+// CARD_LIBRARY + CARD_SETS loaded from card-library.js (full card library — Pokemon EN/JP/TH/ID + One Piece EN/JP)
+// POKEMON_ML_LIBRARY loaded from card-library-pokemon-multilang.js (lazy — DE/FR/ES/IT/PT/KO)
+// Future (staged): card-library-ygo.js, card-library-digimon.js, card-library-dbs.js
 
 var searchMode = 'browse';
 var libPage = 1;
 var LIB_PER_PAGE = 48;
 var libFiltered = [];
+var currentGame = 'pk';
+var loadedGames = {pk: true, op: true}; // card-library.js already loaded (has both)
+
+// Game config — Pokemon and One Piece separated
+// Future staged: ygo, dg, dbs files are built and ready
+var GAME_CONFIG = {
+  pk: {
+    getLib: function() {
+      var base = (typeof CARD_LIBRARY !== 'undefined' ? CARD_LIBRARY : []).filter(function(c){ return c.t === 'pk'; });
+      var ml = typeof POKEMON_ML_LIBRARY !== 'undefined' ? POKEMON_ML_LIBRARY : [];
+      return base.concat(ml);
+    },
+    getSets: function() { return typeof CARD_SETS !== 'undefined' ? CARD_SETS : {}; },
+    label: 'Pokemon',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option><option value="TH">Thai</option><option value="ID">Indonesian</option><option value="DE">Deutsch</option><option value="FR">Francais</option><option value="ES">Espanol</option><option value="IT">Italiano</option><option value="PT">Portugues</option><option value="KO">Korean</option>',
+    ebayGame: 'pokemon',
+    statsLabel: function(lib) {
+      var en=0,jp=0,other=0;
+      lib.forEach(function(c){ if(c.l==='EN') en++; else if(c.l==='JP') jp++; else other++; });
+      return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+(other>0?other.toLocaleString()+' Multilang · ':'')+lib.length.toLocaleString()+' total Pokemon cards';
+    }
+  },
+  op: {
+    getLib: function() {
+      return (typeof CARD_LIBRARY !== 'undefined' ? CARD_LIBRARY : []).filter(function(c){ return c.t === 'op'; });
+    },
+    getSets: function() { return typeof CARD_SETS !== 'undefined' ? CARD_SETS : {}; },
+    label: 'One Piece',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option>',
+    ebayGame: 'one piece',
+    statsLabel: function(lib) {
+      var en=0,jp=0;
+      lib.forEach(function(c){ if(c.l==='EN') en++; else jp++; });
+      return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+lib.length.toLocaleString()+' total One Piece cards';
+    }
+  }
+};
+
+function switchGame(game) {
+  if (!GAME_CONFIG[game]) return;
+  currentGame = game;
+
+  // Update language dropdown per game
+  var langSel = document.getElementById('libLang');
+  if (langSel) langSel.innerHTML = GAME_CONFIG[game].langOptions;
+
+  // Update subtitle + search placeholder
+  var subtitles = {
+    pk: 'Browse every Pokemon card ever printed — all languages',
+    op: 'Browse every One Piece card ever printed — English & Japanese'
+  };
+  var placeholders = {
+    pk: 'Search any Pokemon card...',
+    op: 'Search any One Piece card...'
+  };
+  var sub = document.getElementById('libSubtitle');
+  if (sub) sub.textContent = subtitles[game] || '';
+  var cs = document.getElementById('cardSearch');
+  if (cs) cs.placeholder = placeholders[game] || 'Search cards...';
+
+  // Reset filters
+  document.getElementById('libSet').innerHTML = '<option value="">All Sets</option>';
+  if (cs) cs.value = '';
+
+  // For Pokemon: load multilang file in background on first switch
+  if (game === 'pk' && !loadedGames['pk-ml'] && typeof POKEMON_ML_LIBRARY === 'undefined') {
+    var mlScript = document.createElement('script');
+    mlScript.src = 'card-library-pokemon-multilang.js?v=1';
+    mlScript.onload = function() { loadedGames['pk-ml'] = true; browseLibrary(); };
+    document.head.appendChild(mlScript);
+  }
+
+  updateSetDropdown();
+  browseLibrary();
+}
 
 function setSearchMode(mode) {
   searchMode = mode;
@@ -1367,19 +1582,21 @@ function handleSearch() {
 
 function updateSetDropdown() {
   var sel = document.getElementById('libSet');
-  var tcg = document.getElementById('libTcg').value;
   var lang = document.getElementById('libLang').value;
   sel.innerHTML = '<option value="">All Sets</option>';
-  if (typeof CARD_LIBRARY === 'undefined' || typeof CARD_SETS === 'undefined') return;
+  var cfg = GAME_CONFIG[currentGame];
+  if (!cfg) return;
+  var lib = cfg.getLib();
+  var sets = cfg.getSets();
+  if (!lib) return;
   
   // Get unique sets from filtered cards
   var seen = {};
-  CARD_LIBRARY.forEach(function(c) {
-    if (tcg && c.t !== tcg) return;
+  lib.forEach(function(c) {
     if (lang && c.l !== lang) return;
     if (!seen[c.s]) {
       seen[c.s] = true;
-      var meta = CARD_SETS[c.s];
+      var meta = sets[c.s];
       var name = meta ? (meta.name || meta.nameEn || c.s) : c.s;
       sel.innerHTML += '<option value="' + c.s + '">' + name + '</option>';
     }
@@ -1387,20 +1604,21 @@ function updateSetDropdown() {
 }
 
 function browseLibrary() {
-  if (typeof CARD_LIBRARY === 'undefined') {
-    document.getElementById('libResultsCount').textContent = 'Loading card library...';
-    document.getElementById('libraryGrid').innerHTML = '<p style="text-align:center;color:var(--text-dim);padding:40px">Card library is loading. This may take a moment on first visit.</p>';
+  var cfg = GAME_CONFIG[currentGame];
+  if (!cfg) return;
+  var activeLib = cfg.getLib();
+  if (!activeLib) {
+    document.getElementById('libResultsCount').textContent = 'Loading ' + cfg.label + '...';
+    document.getElementById('libraryGrid').innerHTML = '<p style="text-align:center;color:var(--text-dim);padding:40px">Library loading. Please wait.</p>';
     return;
   }
   
   var q = document.getElementById('cardSearch').value.toLowerCase();
-  var tcg = document.getElementById('libTcg').value;
   var lang = document.getElementById('libLang').value;
   var set = document.getElementById('libSet').value;
   var sort = document.getElementById('libSort').value;
   
-  libFiltered = CARD_LIBRARY.filter(function(c) {
-    if (tcg && c.t !== tcg) return false;
+  libFiltered = activeLib.filter(function(c) {
     if (lang && c.l !== lang) return false;
     if (set && c.s !== set) return false;
     if (q && c.n && !c.n.toLowerCase().includes(q) && !c.s.toLowerCase().includes(q) && !c.id.toLowerCase().includes(q)) return false;
@@ -1424,10 +1642,10 @@ function renderLibrary() {
   
   // Stats
   var statsEl = document.getElementById('libStats');
-  if (typeof CARD_LIBRARY !== 'undefined') {
-    var pkEn = 0, pkJp = 0, op = 0;
-    CARD_LIBRARY.forEach(function(c){ if(c.t==='pk'&&c.l==='EN') pkEn++; else if(c.t==='pk'&&c.l==='JP') pkJp++; else if(c.t==='op') op++; });
-    statsEl.textContent = pkEn.toLocaleString() + ' EN Pokemon · ' + pkJp.toLocaleString() + ' JP Pokemon · ' + op.toLocaleString() + ' One Piece · ' + CARD_LIBRARY.length.toLocaleString() + ' total cards';
+  var cfg2 = GAME_CONFIG[currentGame];
+  if (cfg2) {
+    var activeLib2 = cfg2.getLib();
+    if (activeLib2) statsEl.textContent = cfg2.statsLabel(activeLib2);
   }
   
   document.getElementById('libResultsCount').textContent = total.toLocaleString() + ' cards found' + (total > LIB_PER_PAGE ? ' · Page ' + libPage + ' of ' + pages : '');
@@ -1435,12 +1653,18 @@ function renderLibrary() {
   var grid = document.getElementById('libraryGrid');
   var html = '';
   slice.forEach(function(c) {
-    var setMeta = (typeof CARD_SETS !== 'undefined') ? CARD_SETS[c.s] : null;
+    var activeSets = GAME_CONFIG[currentGame] ? GAME_CONFIG[currentGame].getSets() : {};
+    var setMeta = activeSets[c.s] || null;
     var setName = setMeta ? (setMeta.name || setMeta.nameEn || c.s) : c.s;
     var name = c.n || c.id;
-    html += '<div class="library-card" onclick="showCardModal(this)" data-img="' + c.img + '">' +
-      '<img src="' + (c.th || c.img) + '" alt="' + name + '" loading="lazy" onerror="this.style.display=\'none\';this.parentElement.querySelector(\'.lc-info\').style.paddingTop=\'80px\'">' +
-      '<div class="lc-info"><div class="lc-name">' + name + '</div><div class="lc-set">' + setName + ' · #' + c.num + '</div></div></div>';
+    var tcgLabel = c.t === 'op' ? 'one piece' : 'pokemon';
+    var imgSrc = c.th || c.img || '';
+    var imgHtml = imgSrc
+      ? '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22><rect width=%22200%22 height=%22280%22 fill=%22%231a1a1a%22/><text x=%22100%22 y=%22140%22 text-anchor=%22middle%22 fill=%22%23555%22 font-size=%2214%22>No Image</text></svg>\'">'
+      : '<div style="width:100%;aspect-ratio:5/7;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#444;">' + (c.s || '') + '</div>';
+    html += '<div class="library-card" onclick="showCardModal(this)" data-img="' + c.img + '" data-tcg="' + tcgLabel + '" data-set="' + c.s + '" data-lang="' + (c.l||'EN') + '">' +
+      imgHtml +
+      '<div class="lc-info"><div class="lc-name">' + name + '</div><div class="lc-set">' + setName + ' · ' + c.num + (c.st ? '/' + c.st : '') + '</div></div></div>';
   });
   grid.innerHTML = html;
   
@@ -1466,13 +1690,65 @@ function scrollToLib() {
   document.getElementById('libResultsCount').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+// eBay Partner Network affiliate config (new format — rover deprecated Feb 2021)
+// Params appended directly to eBay URL: mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=XXXXX&toolid=10001
+var EBAY_AFFILIATE_CAMPAIGN = '5339143278';
+var EBAY_AFFILIATE_TOOLID = '10001';
+var EBAY_MKRID = '705-53470-19255-0'; // AU marketplace
+
+function buildEbayUrl(cardName, setName, cardNum, cardGame, setCode, cardLang) {
+  var numPart = cardNum ? ' ' + cardNum : '';
+  var gamePart = cardGame || 'pokemon';
+  // Strip generation/language prefix: "WOTC - Base Set" → "Base Set", "SV5K - Wild Force" → "Wild Force"
+  var cleanSet = (setName || '').replace(/^[A-Za-z0-9\-_.\s]+\s-\s/, '');
+  var sc = setCode || '';
+  var lang = cardLang || 'EN';
+  var query;
+  
+  if (lang === 'EN') {
+    // English: CardName SetName CardNum game card
+    query = (cardName + ' ' + cleanSet + numPart + ' ' + gamePart + ' card').trim();
+  } else {
+    // Non-English (JP, TH, ID, etc): SetCode CardName CardNum SetName "Pokemon cards"
+    // e.g. "SV5K リザードン 001 Wild Force Pokemon cards"
+    query = (sc + ' ' + cardName + numPart + ' ' + cleanSet + ' Pokemon cards').trim();
+  }
+  
+  var base = 'https://www.ebay.com.au/sch/i.html?_nkw=' + encodeURIComponent(query) + '&LH_Sold=1&LH_Complete=1&_sop=13';
+  if (EBAY_AFFILIATE_CAMPAIGN) {
+    return base + '&mkevt=1&mkcid=1&mkrid=' + EBAY_MKRID + '&campid=' + EBAY_AFFILIATE_CAMPAIGN + '&toolid=' + EBAY_AFFILIATE_TOOLID;
+  }
+  return base;
+}
+
 function showCardModal(el) {
   var img = el.getAttribute('data-img');
   if (!img) return;
+  var nameEl = el.querySelector('.lc-name');
+  var setEl = el.querySelector('.lc-set');
+  var cardName = nameEl ? nameEl.textContent : 'Card';
+  var setInfo = setEl ? setEl.textContent : '';
+  var setName = setInfo.split('·')[0].trim();
+  var cardNumPart = setInfo.split('·')[1] ? setInfo.split('·')[1].trim() : '';
+  var cardGame = el.getAttribute('data-tcg') || 'pokemon';
+  var setCode = el.getAttribute('data-set') || '';
+  var cardLang = el.getAttribute('data-lang') || 'EN';
+  
+  var ebaySearchUrl = buildEbayUrl(cardName, setName, cardNumPart, cardGame, setCode, cardLang);
+  var ebayBuyUrl = ebaySearchUrl.replace('LH_Sold=1&LH_Complete=1&_sop=13', '_sop=15');
+  
   var overlay = document.createElement('div');
   overlay.className = 'card-modal-overlay';
-  overlay.onclick = function(){ document.body.removeChild(overlay); };
-  overlay.innerHTML = '<img class="card-modal-img" src="' + img + '">';
+  overlay.onclick = function(e){ if(e.target === overlay) document.body.removeChild(overlay); };
+  overlay.innerHTML = '<button onclick="this.parentElement.remove()" style="position:fixed;top:16px;right:16px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;z-index:10000;padding:8px 12px;line-height:1">✕</button>' +
+    '<div class="card-modal-content">' +
+    '<img class="card-modal-img" src="' + img + '" alt="' + cardName + '">' +
+    '<div class="card-modal-info">' +
+      '<h3 style="margin:0 0 4px;font-size:1.2rem;color:#fff">' + cardName + '</h3>' +
+      '<p style="margin:0 0 16px;font-size:.85rem;color:var(--text-dim)">' + setInfo + '</p>' +
+      '<a href="' + ebayBuyUrl + '" target="_blank" rel="noopener" class="ebay-btn" style="display:block;text-align:center;background:#0064D2;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;margin-bottom:8px">🛒 Buy on eBay</a>' +
+      '<a href="' + ebaySearchUrl + '" target="_blank" rel="noopener" class="ebay-btn-sold" style="display:block;text-align:center;background:transparent;color:#0064D2;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.85rem;border:1px solid #0064D2">📊 View Recent Sales on eBay</a>' +
+    '</div></div>';
   document.body.appendChild(overlay);
 }
 
@@ -1503,10 +1779,10 @@ function searchCards() {
     var trendClass = c.trend === 'up' ? 'trend-up' : c.trend === 'down' ? 'trend-down' : 'trend-flat';
     var ratio = c.psa10 / c.raw;
     var gradeBadge = ratio >= 3 ? '<span class="grade-badge grade-yes">✅ Worth Grading</span>' : ratio >= 2 ? '<span class="grade-badge grade-maybe">⚠️ Maybe</span>' : '<span class="grade-badge grade-no">❌ Not Worth It</span>';
-    var locked = i >= FREE_LIMIT;
+    var locked = false;
     
     html += '<div class="card-result">' +
-      (locked ? '<div class="locked-overlay" onclick="switchTab(\'pro\')"><div class="lock-icon">🔒</div><p>Go Pro to unlock full price data</p><small>$9.99/mo — Cancel anytime</small></div>' : '') +
+      '' +
       '<div class="card-result-img"><img src="' + c.img + '" alt="' + c.name + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div style=font-size:3rem>🃏</div>\'"></div>' +
       '<div class="card-result-body"><h4>' + c.name + '</h4>' +
       '<div class="card-result-meta">' + c.set + ' · #' + c.num + ' · ' + c.rarity + ' · ' + c.lang + '</div>' +
@@ -1518,7 +1794,7 @@ function searchCards() {
   });
   
   grid.innerHTML = html;
-  document.getElementById('searchUpsell').style.display = results.length > FREE_LIMIT ? 'block' : 'none';
+  
 }
 
 // ==================== MINI CHARTS ====================
@@ -1565,59 +1841,54 @@ filterShops(); // Pre-render directory so shops show immediately
 // Handle hash navigation
 if (window.location.hash) {
   const tab = window.location.hash.replace('#','');
-  if (['home','directory','shows','releases','search','blog','register','pro','pokedex'].includes(tab)) switchTab(tab);
+  if (['home','directory','shows','releases','search','blog','register','pro'].includes(tab)) switchTab(tab);
 }
-
-// ==================== POKÉDEX ====================
 </script>
-<script src="dex-data.js"></script>
+
+<!-- Hidden Netlify form for newsletter detection -->
+<form name="newsletter-signup" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<input name="form-name" type="hidden" value="newsletter-signup">
+<input name="bot-field">
+<input name="email">
+<input name="name">
+<input name="source">
+</form>
+
+<!-- EMAIL POPUP -->
+<div id="emailPopup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:9999;backdrop-filter:blur(8px);align-items:center;justify-content:center">
+<div style="background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:40px;max-width:440px;width:90%;text-align:center;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.6)">
+<button onclick="closePopup()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#666;font-size:1.5rem;cursor:pointer;line-height:1">&times;</button>
+<div style="font-size:3rem;margin-bottom:12px">🃏</div>
+<h2 style="font-size:1.4rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#fff,#D4A853);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Join Card Collection Club</h2>
+<p style="color:#999;font-size:.9rem;margin-bottom:20px;line-height:1.5">Get notified about card shows, new releases, price alerts & shop deals. Free forever.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+<input id="popupEmail" type="email" placeholder="Your email address" style="padding:12px 16px;background:#0a0a0a;border:1px solid #333;border-radius:8px;color:#fff;font-family:inherit;font-size:.95rem;flex:1;min-width:200px;outline:none" onkeydown="if(event.key==='Enter')popupSignup()">
+<button onclick="popupSignup()" style="padding:12px 24px;background:#D4A853;color:#000;border:none;border-radius:8px;font-family:inherit;font-weight:700;font-size:.95rem;cursor:pointer;white-space:nowrap">Join Free</button>
+</div>
+<p style="color:#555;font-size:.7rem;margin-top:12px">No spam. Unsubscribe anytime.</p>
+</div>
+</div>
+
 <script>
-var dexPage=1,DEX_PER=60;
-var GEN_RANGES=[[1,151],[152,251],[252,386],[387,493],[494,649],[650,721],[722,809],[810,905],[906,1025]];
-var TYPE_COLORS={normal:'#A8A878',fire:'#F08030',water:'#6890F0',electric:'#F8D030',grass:'#78C850',ice:'#98D8D8',fighting:'#C03028',poison:'#A040A0',ground:'#E0C068',flying:'#A890F0',psychic:'#F85888',bug:'#A8B820',rock:'#B8A038',ghost:'#705898',dragon:'#7038F8',dark:'#705848',steel:'#B8B8D0',fairy:'#EE99AC'};
-
-function getFilteredDex(){
-  var q=(document.getElementById('dexSearch').value||'').toLowerCase();
-  var t=document.getElementById('dexType').value;
-  var g=document.getElementById('dexGen').value;
-  return POKEDEX.filter(function(p){
-    if(q && p[0].indexOf(q)===-1 && String(p[1]).indexOf(q)===-1) return false;
-    if(t && p[2].toLowerCase().indexOf(t)===-1) return false;
-    if(g){var r=GEN_RANGES[parseInt(g)-1]; if(p[1]<r[0]||p[1]>r[1]) return false;}
-    return true;
-  });
+function popupSignup() {
+  var email = document.getElementById('popupEmail').value;
+  if (!email || !email.includes('@')) { document.getElementById('popupEmail').style.borderColor='#e74c3c'; return; }
+  var body = new URLSearchParams({'form-name':'newsletter-signup','email':email,'name':'','source':'popup'});
+  fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body.toString()}).catch(function(){});
+  localStorage.setItem('ccc_popup_done','1');
+  document.getElementById('emailPopup').innerHTML = '<div style="background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:40px;max-width:440px;width:90%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.6)"><div style="font-size:3rem;margin-bottom:12px">🎉</div><h2 style="font-size:1.3rem;font-weight:800;color:#D4A853;margin-bottom:8px">You\'re in!</h2><p style="color:#999;font-size:.9rem;margin-bottom:16px">Welcome to Card Collection Club.</p><button onclick="closePopup()" style="padding:10px 24px;background:#D4A853;color:#000;border:none;border-radius:8px;font-weight:700;cursor:pointer">Start Browsing</button></div>';
 }
-
-function renderDex(){
-  var filtered=getFilteredDex();
-  document.getElementById('dexCount').textContent=filtered.length+' Pokémon found';
-  var total=Math.ceil(filtered.length/DEX_PER);
-  if(dexPage>total) dexPage=1;
-  var start=(dexPage-1)*DEX_PER;
-  var page=filtered.slice(start,start+DEX_PER);
-  var grid=document.getElementById('dexGrid');
-  grid.innerHTML=page.map(function(p){
-    var types=p[2].split(',').filter(Boolean);
-    var badges=types.map(function(t){
-      var c=TYPE_COLORS[t.toLowerCase()]||'#888';
-      return '<span style="font-size:.65rem;padding:2px 6px;border-radius:3px;background:'+c+'22;color:'+c+';font-weight:600;text-transform:capitalize">'+t+'</span>';
-    }).join(' ');
-    var sprite='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+p[1]+'.png';
-    var displayName=p[0].split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1)}).join(' ');
-    return '<a href="pokedex/'+p[0]+'.html" style="text-decoration:none;color:inherit"><div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;transition:all .3s;cursor:pointer" onmouseover="this.style.borderColor=\'var(--gold)\';this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.borderColor=\'var(--border)\';this.style.transform=\'none\'"><img src="'+sprite+'" alt="'+displayName+'" style="width:80px;height:80px;image-rendering:pixelated" loading="lazy"><div style="font-size:.75rem;color:var(--text-dim);margin-bottom:2px">#'+String(p[1]).padStart(3,'0')+'</div><div style="font-size:.9rem;font-weight:700;margin-bottom:6px">'+displayName+'</div><div style="display:flex;gap:4px;justify-content:center;flex-wrap:wrap">'+badges+'</div></div></a>';
-  }).join('');
-  // Pagination
-  var pag=document.getElementById('dexPagination');
-  if(total<=1){pag.innerHTML='';return;}
-  var html='';
-  if(dexPage>1) html+='<button onclick="dexPage=1;renderDex()">«</button><button onclick="dexPage--;renderDex()">‹</button>';
-  var s=Math.max(1,dexPage-3),e=Math.min(total,dexPage+3);
-  for(var i=s;i<=e;i++) html+='<button class="'+(i===dexPage?'active':'')+'" onclick="dexPage='+i+';renderDex()">'+i+'</button>';
-  if(dexPage<total) html+='<button onclick="dexPage++;renderDex()">›</button><button onclick="dexPage='+total+';renderDex()">»</button>';
-  pag.innerHTML=html;
+function closePopup() {
+  document.getElementById('emailPopup').style.display = 'none';
+  localStorage.setItem('ccc_popup_closed','1');
 }
-
-function filterDex(){dexPage=1;renderDex();}
+// Show popup after 5 seconds, only if not already signed up or dismissed
+setTimeout(function() {
+  if (!localStorage.getItem('ccc_popup_done') && !localStorage.getItem('ccc_popup_closed')) {
+    document.getElementById('emailPopup').style.display = 'flex';
+  }
+}, 5000);
 </script>
+
 </body>
 </html>

@@ -1,2 +1,8 @@
 .DS_Store
 .netlify/
+*.bak
+*.bak.*
+
+# Build output / heavy assets (deployed directly to Netlify, not tracked in git)
+cards/
+pokedex/

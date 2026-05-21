@@ -43,31 +43,5 @@ var CARD_DB = [
     "psa9": 211.5,
     "psa10": 431.71,
     "trend": "flat"
-  },
-  {
-    "name": "Shanks",
-    "set": "Romance Dawn",
-    "num": "OP01-120",
-    "tcg": "One Piece",
-    "rarity": "SEC",
-    "lang": "EN",
-    "img": "https://images.pokemontcg.io/sv3/228_hires.png",
-    "raw": 551.49,
-    "psa9": 42.3,
-    "psa10": 141.0,
-    "trend": "up"
-  },
-  {
-    "name": "Nami",
-    "set": "Romance Dawn",
-    "num": "OP01-016",
-    "tcg": "One Piece",
-    "rarity": "SEC",
-    "lang": "EN",
-    "img": "https://images.pokemontcg.io/sv3/228_hires.png",
-    "raw": 105.04,
-    "psa9": 514.65,
-    "psa10": 1043.68,
-    "trend": "up"
   }
 ];

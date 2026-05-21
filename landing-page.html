@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3495461200556880" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Collection Club — The Insider's Edge for Card Collectors & Graders</title>
+<meta name="description" content="Live drop alerts, PSA grading intel, flipper picks & market movers. Your unfair advantage in the card collecting game.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a1a;--bg2:#12122a;--bg3:#1a1a3a;--gold:#FFD700;--cyan:#00D4FF;--text:#e8e8f0;--muted:#8888aa;--radius:12px;--max:1200px}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.1);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.5)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.logo{font-size:1.25rem;font-weight:800;color:var(--gold);letter-spacing:-.5px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:#0a0a1a;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,215,0,.4);color:#0a0a1a}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:768px){
+  nav{position:fixed;top:64px;left:0;right:0;background:rgba(10,10,26,.98);flex-direction:column;padding:24px;gap:20px;transform:translateY(-120%);transition:transform .3s;border-bottom:1px solid rgba(255,215,0,.1)}
+  nav.open{transform:translateY(0)}
+  .hamburger{display:flex}
+}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:14px 36px;border-radius:10px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all .25s}
+.btn-gold{background:linear-gradient(135deg,#FFD700,#FFA500);color:#0a0a1a;box-shadow:0 4px 24px rgba(255,215,0,.25)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,215,0,.45);color:#0a0a1a}
+.btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#0a0a1a}
+.btn-cyan{background:linear-gradient(135deg,#00D4FF,#0099cc);color:#0a0a1a;box-shadow:0 4px 24px rgba(0,212,255,.2)}
+.btn-cyan:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,.4);color:#0a0a1a}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,215,0,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(0,212,255,.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 0%,rgba(255,215,0,.04) 0%,transparent 40%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:10%;right:5%;width:300px;height:420px;border:2px solid rgba(255,215,0,.08);border-radius:16px;transform:rotate(12deg);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 16px;border:1px solid rgba(0,212,255,.3);border-radius:20px;font-size:.8rem;color:var(--cyan);margin-bottom:24px;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.05;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#FFD700 50%,#FFA500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--muted);max-width:600px;margin:0 auto 40px}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2rem;font-weight:800;color:var(--gold)}
+.hero-stat .label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* SECTIONS */
+section{padding:100px 0}
+.section-label{text-transform:uppercase;font-size:.75rem;letter-spacing:3px;color:var(--cyan);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.section-sub{color:var(--muted);font-size:1.1rem;max-width:600px}
+.text-center{text-align:center}
+.text-center .section-sub{margin:0 auto}
+
+/* PROBLEM */
+.problem{background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+.problem-card{background:linear-gradient(135deg,rgba(255,50,50,.05),rgba(255,50,50,.02));border:1px solid rgba(255,80,80,.15);border-radius:var(--radius);padding:32px;text-align:center}
+.problem-card .icon{font-size:2.5rem;margin-bottom:16px}
+.problem-card h3{font-size:1.15rem;margin-bottom:8px;color:#ff6b6b}
+.problem-card p{color:var(--muted);font-size:.95rem}
+
+/* SOLUTION / FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
+.feature-card{perspective:800px;height:240px;cursor:pointer}
+.feature-card-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.feature-card:hover .feature-card-inner{transform:rotateY(180deg)}
+.feature-card-front,.feature-card-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;justify-content:center}
+.feature-card-front{background:var(--bg3);border:1px solid rgba(255,215,0,.1)}
+.feature-card-front .icon{font-size:2rem;margin-bottom:12px}
+.feature-card-front h3{font-size:1.15rem;margin-bottom:6px}
+.feature-card-front p{color:var(--muted);font-size:.9rem}
+.feature-card-back{background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(0,212,255,.1));border:1px solid rgba(255,215,0,.2);transform:rotateY(180deg);text-align:center;align-items:center}
+.feature-card-back p{font-size:.95rem;color:var(--text)}
+
+/* HOW IT WORKS */
+.how{background:var(--bg2)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-top:48px;position:relative}
+.step{text-align:center;position:relative}
+.step-num{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#FFA500);color:#0a0a1a;font-size:1.5rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.step h3{font-size:1.2rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.95rem}
+.step-arrow{display:none;position:absolute;top:32px;right:-16px;font-size:1.5rem;color:var(--gold)}
+@media(min-width:769px){.step-arrow{display:block}}
+
+/* SOCIAL PROOF */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
+.testimonial{background:var(--bg3);border:1px solid rgba(255,215,0,.08);border-radius:var(--radius);padding:28px;position:relative}
+.testimonial::before{content:'"';position:absolute;top:12px;left:20px;font-size:3rem;color:rgba(255,215,0,.15);font-family:Georgia,serif;line-height:1}
+.testimonial p{font-style:italic;color:var(--text);margin-bottom:16px;padding-top:24px;font-size:.95rem}
+.testimonial .author{display:flex;align-items:center;gap:12px}
+.testimonial .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;color:#0a0a1a;font-size:.9rem}
+.testimonial .name{font-weight:600;font-size:.9rem}
+.testimonial .role{font-size:.8rem;color:var(--muted)}
+.stars{color:var(--gold);font-size:.8rem;margin-bottom:8px}
+
+/* PRICING */
+.pricing{background:var(--bg2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;align-items:start}
+.price-card{background:var(--bg);border:1px solid rgba(255,215,0,.1);border-radius:16px;padding:36px;position:relative;transition:transform .3s,box-shadow .3s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(255,215,0,.1)}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a0a1a;padding:4px 16px;border-radius:20px;font-size:.7rem;font-weight:700;letter-spacing:1px}
+.price-card h3{font-size:1.3rem;margin-bottom:4px}
+.price-card .price{font-size:2.5rem;font-weight:800;margin:16px 0 4px}
+.price-card .price span{font-size:1rem;font-weight:400;color:var(--muted)}
+.price-card .annual{font-size:.85rem;color:var(--cyan);margin-bottom:20px}
+.price-card ul{list-style:none;margin-bottom:28px}
+.price-card ul li{padding:6px 0;font-size:.9rem;color:var(--muted)}
+.price-card ul li::before{content:'✓ ';color:var(--gold);font-weight:700}
+.price-card .btn{width:100%;text-align:center}
+
+/* EMAIL CAPTURE */
+.email-capture{background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(0,212,255,.08));border:1px solid rgba(255,215,0,.15);border-radius:16px;padding:48px;text-align:center;margin-top:48px}
+.email-form{display:flex;gap:12px;max-width:480px;margin:24px auto 0;flex-wrap:wrap;justify-content:center}
+.email-form input{flex:1;min-width:200px;padding:14px 20px;border-radius:10px;border:1px solid rgba(255,215,0,.2);background:var(--bg);color:var(--text);font-size:1rem;outline:none}
+.email-form input:focus{border-color:var(--gold)}
+.email-form .btn{white-space:nowrap}
+.email-success{display:none;color:var(--cyan);margin-top:12px;font-weight:600}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,215,0,.1)}
+.faq-q{padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:1.05rem}
+.faq-q::after{content:'+';font-size:1.5rem;color:var(--gold);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;color:var(--muted);font-size:.95rem}
+.faq-a-inner{padding:0 0 20px}
+
+/* INSTAGRAM CTA */
+.insta{text-align:center;padding:80px 24px;background:linear-gradient(135deg,rgba(131,58,180,.1),rgba(253,29,29,.05),rgba(252,176,69,.1))}
+.insta h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:12px}
+.insta p{color:var(--muted);margin-bottom:24px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid rgba(255,215,0,.08);padding:48px 0 24px}
+.footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:32px}
+.footer-brand{max-width:300px}
+.footer-brand .logo{font-size:1.1rem;margin-bottom:8px;display:block}
+.footer-brand p{color:var(--muted);font-size:.85rem}
+.footer-links{display:flex;gap:48px;flex-wrap:wrap}
+.footer-links div h4{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--text);margin-bottom:12px}
+.footer-links div a{display:block;color:var(--muted);font-size:.85rem;padding:4px 0;transition:color .2s}
+.footer-links div a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);color:var(--muted);font-size:.8rem}
+
+/* COUNTERS */
+.counter{font-variant-numeric:tabular-nums}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+<link rel="icon" type="image/jpeg" href="ccc-logo-icon.jpg">
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">Card Collection <span>Club</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing" class="nav-cta">Start Free Trial</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-badge">🃏 For Collectors Who Mean Business</div>
+    <h1>Card Collection Club</h1>
+    <p>The insider's edge for card collectors &amp; graders. Live alerts, grading intel, and market data — before everyone else.</p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn btn-gold">Start Free Trial</a>
+      <a href="#features" class="btn btn-outline">See Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num counter" data-target="10000">0</div><div class="label">Cards Tracked</div></div>
+      <div class="hero-stat"><div class="num counter" data-target="2500">0</div><div class="label">Active Members</div></div>
+      <div class="hero-stat"><div class="num counter" data-target="150">0</div><div class="label">Drops Alerted</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container text-center">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Sound Familiar?</h2>
+    <p class="section-sub">Collecting cards shouldn't feel like gambling blind. But without the right data, it does.</p>
+    <div class="problem-grid">
+      <div class="problem-card fade-up">
+        <div class="icon">😤</div>
+        <h3>Missing Every Drop</h3>
+        <p>By the time you see it on Reddit, it's already sold out. Resellers are feasting while you're refreshing.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="icon">💸</div>
+        <h3>Grading the Wrong Cards</h3>
+        <p>$30 per submission adds up fast when you're sending cards that come back as 7s. You need data, not guesses.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="icon">📉</div>
+        <h3>Buying at the Wrong Time</h3>
+        <p>You bought the hype at the peak. Now you're holding a card worth 40% less. Timing is everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION / FEATURES -->
+<section id="features">
+  <div class="container text-center">
+    <div class="section-label">The Solution</div>
+    <h2 class="section-title">Your Unfair Advantage</h2>
+    <p class="section-sub">Six powerful tools that give you the edge over every other collector in the market.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">🔔</div>
+            <h3>Live Drop Alerts</h3>
+            <p>Instant notifications when products drop at retail. Never miss a release again.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Our bots monitor 50+ retailers 24/7. You get alerted within seconds — faster than any Discord group.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">🏆</div>
+            <h3>PSA Grading Intel</h3>
+            <p>Population reports, grade distributions, and submission ROI calculators.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Know exactly which cards are worth grading before you spend $30+. Data from 1M+ graded cards.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">💰</div>
+            <h3>Flipper Picks</h3>
+            <p>Curated buy-low-sell-high opportunities identified by our algorithms.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Weekly picks with entry price, target price, and confidence score. Average ROI: 34% on recommended flips.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">📊</div>
+            <h3>Market Movers</h3>
+            <p>Real-time price movements and trending cards across every major marketplace.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Track eBay, TCGPlayer, StockX and more. See what's spiking and what's crashing — in real time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">📦</div>
+            <h3>Sealed Price Tracker</h3>
+            <p>Track sealed product prices across retailers and the secondary market.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Booster boxes, ETBs, tins — see price history, current best price, and predicted trajectory.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-inner">
+          <div class="feature-card-front">
+            <div class="icon">📁</div>
+            <h3>Portfolio Tracking</h3>
+            <p>Track your collection's value in real time. Know your net worth in cards.</p>
+          </div>
+          <div class="feature-card-back">
+            <p>Import from spreadsheets or scan cards. See gains, losses, and total portfolio value updated daily.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container text-center">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three Steps to Smarter Collecting</h2>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <h3>Sign Up Free</h3>
+        <p>Create your account in 30 seconds. No credit card required to start.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">2</div>
+        <h3>Get Alerts & Intel</h3>
+        <p>Set your preferences and start receiving drop alerts, grading data, and market insights.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">3</div>
+        <h3>Collect & Profit</h3>
+        <p>Buy smarter, grade better, flip faster. Watch your collection ROI grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="proof">
+  <div class="container text-center">
+    <div class="section-label">Social Proof</div>
+    <h2 class="section-title">What Our Members Say</h2>
+    <div class="testimonials">
+      <div class="testimonial fade-up">
+        <div class="stars">★★★★★</div>
+        <p>Got the Obsidian hobby box alert 12 seconds after it dropped on Target. Grabbed 3 before they sold out in under a minute. This pays for itself instantly.</p>
+        <div class="author">
+          <div class="avatar">MK</div>
+          <div><div class="name">Marcus K.</div><div class="role">Sports Card Collector, Melbourne</div></div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <div class="stars">★★★★★</div>
+        <p>The grading ROI calculator saved me from submitting 40 cards that would've been a net loss. Ended up sending 12 instead — 9 came back PSA 10. That's $1,400 in pure profit.</p>
+        <div class="author">
+          <div class="avatar">SR</div>
+          <div><div class="name">Sarah R.</div><div class="role">Pokémon Grader, Sydney</div></div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <div class="stars">★★★★★</div>
+        <p>Flipper Picks gave me a buy on a Luka rookie at $45. Sold it three weeks later for $78. The data here is legit — I've made back 10x my annual subscription.</p>
+        <div class="author">
+          <div class="avatar">JT</div>
+          <div><div class="name">James T.</div><div class="role">NBA Card Flipper, Brisbane</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container text-center">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Choose Your Edge</h2>
+    <p class="section-sub">Start free. Upgrade when you're ready to go pro.</p>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <h3>Free</h3>
+        <div class="price">$0<span>/month</span></div>
+        <div class="annual">Free forever</div>
+        <ul>
+          <li>Basic price lookups</li>
+          <li>3 alerts per week</li>
+          <li>Community access</li>
+          <li>Market overview dashboard</li>
+        </ul>
+        <a href="#" class="btn btn-outline" onclick="handleSignup(event)">Get Started</a>
+      </div>
+      <div class="price-card featured fade-up">
+        <h3>Pro</h3>
+        <div class="price">$9.99<span>/month</span></div>
+        <div class="annual">or $99/year (save 17%)</div>
+        <ul>
+          <li>Full grading database</li>
+          <li>Unlimited alerts</li>
+          <li>Flipper picks</li>
+          <li>Market movers</li>
+          <li>Sealed price tracker</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-gold" onclick="handleSignup(event)">Start Free Trial</a>
+      </div>
+      <div class="price-card fade-up">
+        <h3>Whale 🐋</h3>
+        <div class="price">$29.99<span>/month</span></div>
+        <div class="annual">or $249/year (save 31%)</div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>API access</li>
+          <li>Portfolio tracking</li>
+          <li>Priority alerts (fastest tier)</li>
+          <li>1-on-1 monthly strategy call</li>
+          <li>Early feature access</li>
+        </ul>
+        <a href="#" class="btn btn-cyan" onclick="handleSignup(event)">Go Whale</a>
+      </div>
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="email-capture">
+      <h3 style="font-size:1.4rem;margin-bottom:8px">Get Early Access</h3>
+      <p style="color:var(--muted)">Join the waitlist and be the first to know when we launch new features.</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" placeholder="you@email.com" required id="emailInput">
+        <button type="submit" class="btn btn-gold">Join Waitlist</button>
+      </form>
+      <div class="email-success" id="emailSuccess">🎉 You're on the list! We'll be in touch.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Got Questions?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What cards do you cover?</div>
+        <div class="faq-a"><div class="faq-a-inner">We cover Pokémon TCG, NBA/NFL/MLB sports cards, Yu-Gi-Oh!, Magic: The Gathering, and other major TCGs. Our database spans both singles and sealed products across all major sets.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast are drop alerts?</div>
+        <div class="faq-a"><div class="faq-a-inner">Our monitoring bots check retailer stock every 3–5 seconds. Most members receive alerts within 10–15 seconds of a product going live — fast enough to beat the bots and resellers.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is grading data accurate?</div>
+        <div class="faq-a"><div class="faq-a-inner">Our grading data is sourced from PSA, BGS, and CGC population reports, updated daily. Our ROI calculator uses real recent sales data from eBay and other marketplaces to give you accurate profit projections.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime?</div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. No contracts, no lock-in. Cancel from your dashboard with one click and you won't be charged again. Annual plans are prorated if you cancel early.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you ship cards?</div>
+        <div class="faq-a"><div class="faq-a-inner">No — we're a data and alerts platform, not a marketplace. We help you find the best deals and make smarter decisions, but you buy directly from retailers and sellers yourself.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <div class="faq-a"><div class="faq-a-inner">We accept all major credit/debit cards (Visa, Mastercard, Amex) via Stripe. Apple Pay and Google Pay are also supported. All payments are processed securely with 256-bit encryption.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM CTA -->
+<section class="insta">
+  <div class="container">
+    <h2>📸 Follow Us for Daily Market Intel</h2>
+    <p>Hot pulls, market insights, grading tips, and memes. Every day.</p>
+    <a href="https://instagram.com/cardcollectionclub" target="_blank" class="btn btn-gold">Follow @cardcollectionclub</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">Card Collection <span>Club</span></span>
+        <p>The insider's edge for card collectors &amp; graders. Data-driven tools to collect smarter.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Card Collection Club. Made in Australia 🇦🇺
+    </div>
+  </div>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger=document.getElementById('hamburger'),nav=document.getElementById('nav');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');nav.classList.toggle('open')});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');nav.classList.remove('open')}));
+
+// Header scroll
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>50));
+
+// Animated counters
+const counters=document.querySelectorAll('.counter');
+let counterDone=false;
+function animateCounters(){
+  if(counterDone)return;
+  const trigger=window.innerHeight*.85;
+  counters.forEach(c=>{
+    if(c.getBoundingClientRect().top<trigger){
+      counterDone=true;
+      const target=+c.dataset.target,duration=1500,start=performance.now();
+      function tick(now){
+        const p=Math.min((now-start)/duration,1);
+        const ease=1-Math.pow(1-p,3);
+        c.textContent=Math.floor(ease*target).toLocaleString()+'+';
+        if(p<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  });
+}
+
+// Fade-up on scroll
+const fadeEls=document.querySelectorAll('.fade-up');
+function checkFade(){
+  const trigger=window.innerHeight*.9;
+  fadeEls.forEach(el=>{if(el.getBoundingClientRect().top<trigger)el.classList.add('visible')});
+  animateCounters();
+}
+window.addEventListener('scroll',checkFade);
+checkFade();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,a=item.querySelector('.faq-a');
+    const open=item.classList.toggle('open');
+    a.style.maxHeight=open?a.scrollHeight+'px':'0';
+  });
+});
+
+// Email capture
+document.getElementById('emailForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const email=document.getElementById('emailInput').value;
+  const list=JSON.parse(localStorage.getItem('ccc_waitlist')||'[]');
+  list.push({email,ts:Date.now()});
+  localStorage.setItem('ccc_waitlist',JSON.stringify(list));
+  document.getElementById('emailSuccess').style.display='block';
+  document.getElementById('emailInput').value='';
+});
+
+function handleSignup(e){e.preventDefault();document.getElementById('emailInput').focus();document.querySelector('.email-capture').scrollIntoView({behavior:'smooth'})}
+</script>
+</body>
+</html>
