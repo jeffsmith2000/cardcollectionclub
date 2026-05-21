@@ -660,6 +660,7 @@ a:hover{color:#f0c96e}
     <option value="dg">🦖 Digimon</option>
     <option value="dbs">🐉 Dragon Ball Super</option>
     <option value="ygo">⚔️ Yu-Gi-Oh!</option>
+    <option value="mz">👻 MetaZoo</option>
   </select>
 </div>
 <div class="lib-set-filter">
@@ -1578,6 +1579,18 @@ var GAME_CONFIG = {
       lib.forEach(function(c){ if(c.l==='EN') en++; else if(c.l==='JP') jp++; });
       return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+lib.length.toLocaleString()+' total Yu-Gi-Oh! cards';
     }
+  },
+  mz: {
+    getLib: function() {
+      return typeof METAZOO_LIBRARY !== 'undefined' ? METAZOO_LIBRARY : null;
+    },
+    getSets: function() { return typeof METAZOO_SETS !== 'undefined' ? METAZOO_SETS : {}; },
+    label: 'MetaZoo',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option>',
+    ebayGame: 'metazoo',
+    statsLabel: function(lib) {
+      return lib.length.toLocaleString()+' total MetaZoo cards · '+Object.keys(METAZOO_SETS||{}).length+' sets';
+    }
   }
 };
 
@@ -1595,14 +1608,16 @@ function switchGame(game) {
     op: 'Browse every One Piece card ever printed — English, Japanese & Chinese (SC/TC)',
     dg: 'Browse every Digimon card ever printed — 120 sets, 4,700+ cards',
     dbs: 'Browse every Dragon Ball Super card ever printed — 112 sets, 9,600+ cards',
-    ygo: 'Browse every Yu-Gi-Oh! card ever printed — 937 sets, 25,800+ cards'
+    ygo: 'Browse every Yu-Gi-Oh! card ever printed — 460 sets, 25,800+ cards',
+    mz: 'Browse every MetaZoo card ever printed — 7 sets, 1,140 cards'
   };
   var placeholders = {
     pk: 'Search any Pokemon card...',
     op: 'Search any One Piece card...',
     dg: 'Search any Digimon card...',
     dbs: 'Search any Dragon Ball Super card...',
-    ygo: 'Search any Yu-Gi-Oh! card...'
+    ygo: 'Search any Yu-Gi-Oh! card...',
+    mz: 'Search any MetaZoo card...'
   };
   var sub = document.getElementById('libSubtitle');
   if (sub) sub.textContent = subtitles[game] || '';
@@ -1651,6 +1666,14 @@ function switchGame(game) {
     ygoScript.src = 'card-library-ygo.js?v=2';
     ygoScript.onload = function() { loadedGames['ygo'] = true; updateSetDropdown(); browseLibrary(); };
     document.head.appendChild(ygoScript);
+  }
+
+  // For MetaZoo: lazy-load the library on first switch
+  if (game === 'mz' && !loadedGames['mz'] && typeof METAZOO_LIBRARY === 'undefined') {
+    var mzScript = document.createElement('script');
+    mzScript.src = 'card-library-metazoo.js?v=1';
+    mzScript.onload = function() { loadedGames['mz'] = true; updateSetDropdown(); browseLibrary(); };
+    document.head.appendChild(mzScript);
   }
 
   updateSetDropdown();
@@ -1752,7 +1775,7 @@ function renderLibrary() {
     var setMeta = activeSets[c.s] || null;
     var setName = setMeta ? (setMeta.name || setMeta.nameEn || c.s) : c.s;
     var name = c.n || c.id;
-    var tcgLabel = c.t === 'op' ? 'one piece' : (c.t === 'dg' ? 'digimon' : (c.t === 'dbs' ? 'dragon ball super' : (c.t === 'ygo' ? 'yugioh' : 'pokemon')));
+    var tcgLabel = c.t === 'op' ? 'one piece' : (c.t === 'dg' ? 'digimon' : (c.t === 'dbs' ? 'dragon ball super' : (c.t === 'ygo' ? 'yugioh' : (c.t === 'mz' ? 'metazoo' : 'pokemon'))));
     var imgSrc = c.th || c.img || '';
     var imgHtml = imgSrc
       ? '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22><rect width=%22200%22 height=%22280%22 fill=%22%231a1a1a%22/><text x=%22100%22 y=%22140%22 text-anchor=%22middle%22 fill=%22%23555%22 font-size=%2214%22>No Image</text></svg>\'">'
