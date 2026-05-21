@@ -1648,7 +1648,7 @@ function switchGame(game) {
   // For Yu-Gi-Oh!: lazy-load the library on first switch (large file ~6MB)
   if (game === 'ygo' && !loadedGames['ygo'] && typeof YGO_LIBRARY === 'undefined') {
     var ygoScript = document.createElement('script');
-    ygoScript.src = 'card-library-ygo.js?v=1';
+    ygoScript.src = 'card-library-ygo.js?v=2';
     ygoScript.onload = function() { loadedGames['ygo'] = true; updateSetDropdown(); browseLibrary(); };
     document.head.appendChild(ygoScript);
   }
