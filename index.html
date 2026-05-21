@@ -1571,10 +1571,12 @@ var GAME_CONFIG = {
     },
     getSets: function() { return typeof YGO_SETS !== 'undefined' ? YGO_SETS : {}; },
     label: 'Yu-Gi-Oh!',
-    langOptions: '<option value="">All Languages</option><option value="EN">English</option>',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option><option value="JP">Japanese</option>',
     ebayGame: 'yugioh',
     statsLabel: function(lib) {
-      return lib.length.toLocaleString()+' total Yu-Gi-Oh! cards · '+Object.keys(YGO_SETS||{}).length+' sets';
+      var en=0,jp=0;
+      lib.forEach(function(c){ if(c.l==='EN') en++; else if(c.l==='JP') jp++; });
+      return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+lib.length.toLocaleString()+' total Yu-Gi-Oh! cards';
     }
   }
 };
