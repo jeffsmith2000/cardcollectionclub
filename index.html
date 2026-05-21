@@ -648,7 +648,7 @@ a:hover{color:#f0c96e}
 
 <div class="search-bar-wrap">
 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-<input type="text" placeholder="Search any Pokemon or One Piece card..." id="cardSearch" oninput="handleSearch()">
+<input type="text" placeholder="Search any Pokemon, One Piece or Digimon card..." id="cardSearch" oninput="handleSearch()">
 </div>
 <!-- Browse mode filters -->
 <div id="browseFilters">
@@ -657,6 +657,7 @@ a:hover{color:#f0c96e}
   <select id="libGame" onchange="switchGame(this.value)" style="max-width:200px;font-weight:600;border-color:var(--gold)">
     <option value="pk">🎴 Pokemon</option>
     <option value="op">⚓ One Piece</option>
+    <option value="dg">🦖 Digimon</option>
   </select>
 </div>
 <div class="lib-set-filter">
@@ -1480,7 +1481,8 @@ function submitRegistration(e) {
 // CARD_DB loaded from cards-data.js (price data)
 // CARD_LIBRARY + CARD_SETS loaded from card-library.js (full card library — Pokemon EN/JP/TH/ID + One Piece EN/JP)
 // POKEMON_ML_LIBRARY loaded from card-library-pokemon-multilang.js (lazy — DE/FR/ES/IT/PT/KO)
-// Future (staged): card-library-ygo.js, card-library-digimon.js, card-library-dbs.js
+// DIGIMON_LIBRARY + DIGIMON_SETS loaded from card-library-digimon.js (lazy — loaded on first Digimon tab switch)
+// Future (staged): card-library-ygo.js, card-library-dbs.js
 
 var searchMode = 'browse';
 var libPage = 1;
@@ -1489,8 +1491,8 @@ var libFiltered = [];
 var currentGame = 'pk';
 var loadedGames = {pk: true, op: true}; // card-library.js already loaded (has both)
 
-// Game config — Pokemon and One Piece separated
-// Future staged: ygo, dg, dbs files are built and ready
+// Game config — Pokemon, One Piece, Digimon
+// Future staged: ygo, dbs files are built and ready
 var GAME_CONFIG = {
   pk: {
     getLib: function() {
@@ -1521,6 +1523,18 @@ var GAME_CONFIG = {
       lib.forEach(function(c){ if(c.l==='EN') en++; else jp++; });
       return en.toLocaleString()+' EN · '+jp.toLocaleString()+' JP · '+lib.length.toLocaleString()+' total One Piece cards';
     }
+  },
+  dg: {
+    getLib: function() {
+      return typeof DIGIMON_LIBRARY !== 'undefined' ? DIGIMON_LIBRARY : null;
+    },
+    getSets: function() { return typeof DIGIMON_SETS !== 'undefined' ? DIGIMON_SETS : {}; },
+    label: 'Digimon',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option>',
+    ebayGame: 'digimon',
+    statsLabel: function(lib) {
+      return lib.length.toLocaleString()+' total Digimon cards · '+Object.keys(DIGIMON_SETS||{}).length+' sets';
+    }
   }
 };
 
@@ -1535,11 +1549,13 @@ function switchGame(game) {
   // Update subtitle + search placeholder
   var subtitles = {
     pk: 'Browse every Pokemon card ever printed — all languages',
-    op: 'Browse every One Piece card ever printed — English & Japanese'
+    op: 'Browse every One Piece card ever printed — English & Japanese',
+    dg: 'Browse every Digimon card ever printed — 120 sets, 4,700+ cards'
   };
   var placeholders = {
     pk: 'Search any Pokemon card...',
-    op: 'Search any One Piece card...'
+    op: 'Search any One Piece card...',
+    dg: 'Search any Digimon card...'
   };
   var sub = document.getElementById('libSubtitle');
   if (sub) sub.textContent = subtitles[game] || '';
@@ -1556,6 +1572,14 @@ function switchGame(game) {
     mlScript.src = 'card-library-pokemon-multilang.js?v=1';
     mlScript.onload = function() { loadedGames['pk-ml'] = true; browseLibrary(); };
     document.head.appendChild(mlScript);
+  }
+
+  // For Digimon: lazy-load the library on first switch
+  if (game === 'dg' && !loadedGames['dg'] && typeof DIGIMON_LIBRARY === 'undefined') {
+    var dgScript = document.createElement('script');
+    dgScript.src = 'card-library-digimon.js?v=1';
+    dgScript.onload = function() { loadedGames['dg'] = true; updateSetDropdown(); browseLibrary(); };
+    document.head.appendChild(dgScript);
   }
 
   updateSetDropdown();
@@ -1657,7 +1681,7 @@ function renderLibrary() {
     var setMeta = activeSets[c.s] || null;
     var setName = setMeta ? (setMeta.name || setMeta.nameEn || c.s) : c.s;
     var name = c.n || c.id;
-    var tcgLabel = c.t === 'op' ? 'one piece' : 'pokemon';
+    var tcgLabel = c.t === 'op' ? 'one piece' : (c.t === 'dg' ? 'digimon' : 'pokemon');
     var imgSrc = c.th || c.img || '';
     var imgHtml = imgSrc
       ? '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22><rect width=%22200%22 height=%22280%22 fill=%22%231a1a1a%22/><text x=%22100%22 y=%22140%22 text-anchor=%22middle%22 fill=%22%23555%22 font-size=%2214%22>No Image</text></svg>\'">'
