@@ -648,7 +648,7 @@ a:hover{color:#f0c96e}
 
 <div class="search-bar-wrap">
 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-<input type="text" placeholder="Search any Pokemon, One Piece or Digimon card..." id="cardSearch" oninput="handleSearch()">
+<input type="text" placeholder="Search any Pokemon, One Piece, Digimon, DBS or Yu-Gi-Oh card..." id="cardSearch" oninput="handleSearch()">
 </div>
 <!-- Browse mode filters -->
 <div id="browseFilters">
@@ -658,6 +658,8 @@ a:hover{color:#f0c96e}
     <option value="pk">🎴 Pokemon</option>
     <option value="op">⚓ One Piece</option>
     <option value="dg">🦖 Digimon</option>
+    <option value="dbs">🐉 Dragon Ball Super</option>
+    <option value="ygo">⚔️ Yu-Gi-Oh!</option>
   </select>
 </div>
 <div class="lib-set-filter">
@@ -1550,6 +1552,30 @@ var GAME_CONFIG = {
     statsLabel: function(lib) {
       return lib.length.toLocaleString()+' total Digimon cards · '+Object.keys(DIGIMON_SETS||{}).length+' sets';
     }
+  },
+  dbs: {
+    getLib: function() {
+      return typeof DBS_LIBRARY !== 'undefined' ? DBS_LIBRARY : null;
+    },
+    getSets: function() { return typeof DBS_SETS !== 'undefined' ? DBS_SETS : {}; },
+    label: 'Dragon Ball Super',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option>',
+    ebayGame: 'dragon ball super',
+    statsLabel: function(lib) {
+      return lib.length.toLocaleString()+' total Dragon Ball Super cards · '+Object.keys(DBS_SETS||{}).length+' sets';
+    }
+  },
+  ygo: {
+    getLib: function() {
+      return typeof YGO_LIBRARY !== 'undefined' ? YGO_LIBRARY : null;
+    },
+    getSets: function() { return typeof YGO_SETS !== 'undefined' ? YGO_SETS : {}; },
+    label: 'Yu-Gi-Oh!',
+    langOptions: '<option value="">All Languages</option><option value="EN">English</option>',
+    ebayGame: 'yugioh',
+    statsLabel: function(lib) {
+      return lib.length.toLocaleString()+' total Yu-Gi-Oh! cards · '+Object.keys(YGO_SETS||{}).length+' sets';
+    }
   }
 };
 
@@ -1565,12 +1591,16 @@ function switchGame(game) {
   var subtitles = {
     pk: 'Browse every Pokemon card ever printed — all languages',
     op: 'Browse every One Piece card ever printed — English, Japanese & Chinese (SC/TC)',
-    dg: 'Browse every Digimon card ever printed — 120 sets, 4,700+ cards'
+    dg: 'Browse every Digimon card ever printed — 120 sets, 4,700+ cards',
+    dbs: 'Browse every Dragon Ball Super card ever printed — 112 sets, 9,600+ cards',
+    ygo: 'Browse every Yu-Gi-Oh! card ever printed — 937 sets, 25,800+ cards'
   };
   var placeholders = {
     pk: 'Search any Pokemon card...',
     op: 'Search any One Piece card...',
-    dg: 'Search any Digimon card...'
+    dg: 'Search any Digimon card...',
+    dbs: 'Search any Dragon Ball Super card...',
+    ygo: 'Search any Yu-Gi-Oh! card...'
   };
   var sub = document.getElementById('libSubtitle');
   if (sub) sub.textContent = subtitles[game] || '';
@@ -1603,6 +1633,22 @@ function switchGame(game) {
     zhScript.src = 'card-library-op-zh.js?v=1';
     zhScript.onload = function() { loadedGames['op-zh'] = true; updateSetDropdown(); browseLibrary(); };
     document.head.appendChild(zhScript);
+  }
+
+  // For Dragon Ball Super: lazy-load the library on first switch
+  if (game === 'dbs' && !loadedGames['dbs'] && typeof DBS_LIBRARY === 'undefined') {
+    var dbsScript = document.createElement('script');
+    dbsScript.src = 'card-library-dbs.js?v=1';
+    dbsScript.onload = function() { loadedGames['dbs'] = true; updateSetDropdown(); browseLibrary(); };
+    document.head.appendChild(dbsScript);
+  }
+
+  // For Yu-Gi-Oh!: lazy-load the library on first switch (large file ~6MB)
+  if (game === 'ygo' && !loadedGames['ygo'] && typeof YGO_LIBRARY === 'undefined') {
+    var ygoScript = document.createElement('script');
+    ygoScript.src = 'card-library-ygo.js?v=1';
+    ygoScript.onload = function() { loadedGames['ygo'] = true; updateSetDropdown(); browseLibrary(); };
+    document.head.appendChild(ygoScript);
   }
 
   updateSetDropdown();
@@ -1704,7 +1750,7 @@ function renderLibrary() {
     var setMeta = activeSets[c.s] || null;
     var setName = setMeta ? (setMeta.name || setMeta.nameEn || c.s) : c.s;
     var name = c.n || c.id;
-    var tcgLabel = c.t === 'op' ? 'one piece' : (c.t === 'dg' ? 'digimon' : 'pokemon');
+    var tcgLabel = c.t === 'op' ? 'one piece' : (c.t === 'dg' ? 'digimon' : (c.t === 'dbs' ? 'dragon ball super' : (c.t === 'ygo' ? 'yugioh' : 'pokemon')));
     var imgSrc = c.th || c.img || '';
     var imgHtml = imgSrc
       ? '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22><rect width=%22200%22 height=%22280%22 fill=%22%231a1a1a%22/><text x=%22100%22 y=%22140%22 text-anchor=%22middle%22 fill=%22%23555%22 font-size=%2214%22>No Image</text></svg>\'">'
